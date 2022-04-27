@@ -89,7 +89,7 @@
         </label>
         <textarea class="border border-gray-200 rounded p-2 w-full" name="description" rows="10"
           placeholder="Include tasks, requirements, salary, etc">
-          {{old('company')}}
+          {{old('description')}}
         </textarea>
 
         @error('description')
