@@ -7,30 +7,41 @@ An app for listing Laravel gigs/jobs. This project is from my YouTube "[Laravel 
 ## Usage
 
 ### Database Setup
+
 This app uses MySQL. To use something different, open up config/Database.php and change the default driver.
 
 To use MySQL, make sure you install it, setup a database and then add your db credentials(database, username and password) to the .env.example file and rename it to .env
 
-### Migrations
-To create all the nessesary tables and columns, run the following
+### Generate Key
+
+To run laravel project generating keys are required make sure that you have .env
+, run the following command
+it will set APP_KEY=base64:xxxxxxxxxxxxxxxxxxxx to .env
+
 ```
-php artisan migrate
+php artisan key:generate
 ```
 
-### Seeding The Databaase
-To add the dummy listings with a single user, run the following
+### Migrations & Seeding The Database
+
+To create all the nessesary tables, columns and add the dummy listings with a single user, run the following
+
 ```
-php artisan db:seed
+php artisan migrate --seed
 ```
 
 ### File Uploading
+
 When uploading listing files, they go to "storage/app/public". Create a symlink with the following command to make them publicly accessible.
+
 ```
 php artisan storage:link
 ```
 
 ### Running Then App
-Upload the files to your document root, Valet folder or run 
+
+Upload the files to your document root, Valet folder or run
+
 ```
 php artisan serve
 ```
