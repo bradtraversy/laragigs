@@ -12,7 +12,7 @@ This app uses MySQL. To use something different, open up config/Database.php and
 
 To use MySQL, make sure you install it, setup a database and then add your db credentials(database, username and password) to the .env.example file and rename it to .env
 
-### KeyGenerate
+### Generate Key
 
 To run laravel project generating keys are required make sure that you have .env
 , run the following command
