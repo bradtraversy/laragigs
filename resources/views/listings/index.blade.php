@@ -1,6 +1,6 @@
 <x-layout>
   @if (Auth::check())
-    // Keep blank
+    <!-- Don't put anything here -->
 @else  
     @include('partials._hero')
 @endif
