@@ -22,9 +22,9 @@ it will set APP_KEY=base64:xxxxxxxxxxxxxxxxxxxx to .env
 php artisan key:generate
 ```
 
-### Migrations & Seeding The Databaase
+### Migrations & Seeding The Database
 
-To create all the nessesary tables and columns, run the following
+To create all the nessesary tables, columns and add the dummy listings with a single user, run the following
 
 ```
 php artisan migrate --seed
