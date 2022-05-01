@@ -17,7 +17,7 @@ To create all the nessesary tables and columns, run the following
 php artisan migrate
 ```
 
-### Seeding The Databaase
+### Seeding The Database
 To add the dummy listings with a single user, run the following
 ```
 php artisan db:seed
