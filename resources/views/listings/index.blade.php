@@ -1,9 +1,7 @@
 <x-layout>
-  @if (Auth::check())
-    <!-- Don't put anything here -->
-@else  
+  @if (!Auth::check())
     @include('partials._hero')
-@endif
+  @endif
 
   @include('partials._search')
 
