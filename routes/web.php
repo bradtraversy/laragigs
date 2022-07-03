@@ -47,7 +47,7 @@ Route::group(['middleware' => 'auth'], static function () {
     Route::delete('/listings/{listing}', [ListingController::class, 'destroy']);
 
     // Manage Listings
-    Route::get('/listings/manage', [ListingManageController::class, 'index']);
+    Route::get('/listings/manage', ListingManageController::class);
 
     // Log User Out
     Route::post('/logout', [UserController::class, 'logout']);
