@@ -3,29 +3,26 @@
 namespace App\Http\Controllers;
 
 use App\Models\User;
+use Illuminate\View\View;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
+use Illuminate\Http\RedirectResponse;
+use App\Http\Requests\UserCreateRequest;
 
 class UserController extends Controller
 {
-    // Show Register/Create Form
-    public function create() {
-        return view('users.register');
-    }
-
-    // Create New User
-    public function store(Request $request) {
-        $formFields = $request->validate([
-            'name' => ['required', 'min:3'],
-            'email' => ['required', 'email', Rule::unique('users', 'email')],
-            'password' => 'required|confirmed|min:6'
-        ]);
-
-        // Hash Password
-        $formFields['password'] = bcrypt($formFields['password']);
-
-        // Create User
-        $user = User::create($formFields);
+    /**
+     * Store the user.
+     *
+     * @param  UserCreateRequest  $request
+     *
+     * @return RedirectResponse
+     */
+    public function store(UserCreateRequest $request): RedirectResponse
+    {
+        // Create the user using the validated
+        // data. The password is encrypted
+        // using the setter in model.
+        $user = User::create($request->validated());
 
         // Login
         auth()->login($user);
@@ -33,30 +30,59 @@ class UserController extends Controller
         return redirect('/')->with('message', 'User created and logged in');
     }
 
-    // Logout User
-    public function logout(Request $request) {
+    /**
+     * Show the register form.
+     *
+     * @return View
+     */
+    public function create(): View
+    {
+        return view('users.register');
+    }
+
+    /**
+     * Show the login form.
+     *
+     * @return View
+     */
+    public function login(): View
+    {
+        return view('users.login');
+    }
+
+    /**
+     * Logout the user
+     *
+     * @param  Request  $request
+     *
+     * @return RedirectResponse
+     */
+    public function logout(Request $request): RedirectResponse
+    {
         auth()->logout();
 
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
         return redirect('/')->with('message', 'You have been logged out!');
-
     }
 
-    // Show Login Form
-    public function login() {
-        return view('users.login');
-    }
 
-    // Authenticate User
-    public function authenticate(Request $request) {
+    /**
+     * Try and authenticate the user
+     *
+     * @param  Request  $request
+     *
+     * @return RedirectResponse
+     */
+    public function authenticate(Request $request): RedirectResponse
+    {
         $formFields = $request->validate([
-            'email' => ['required', 'email'],
-            'password' => 'required'
+            'email'    => ['required', 'email'],
+            'password' => 'required',
         ]);
 
-        if(auth()->attempt($formFields)) {
+        if (auth()->attempt($formFields)) {
             $request->session()->regenerate();
 
             return redirect('/')->with('message', 'You are now logged in!');

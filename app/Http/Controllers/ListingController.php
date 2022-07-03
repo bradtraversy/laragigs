@@ -3,97 +3,115 @@
 namespace App\Http\Controllers;
 
 use App\Models\Listing;
-use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
+use Illuminate\View\View;
+use Illuminate\Http\RedirectResponse;
+use App\Http\Requests\ListingUpdateRequest;
+use App\Http\Requests\ListingCreateRequest;
 
 class ListingController extends Controller
 {
-    // Show all listings
-    public function index() {
+    /**
+     * Show a list of all the listings.
+     *
+     * @return View
+     */
+    public function index(): View
+    {
         return view('listings.index', [
-            'listings' => Listing::latest()->filter(request(['tag', 'search']))->paginate(6)
+            'listings' => Listing::latest()->filter(request(['tag', 'search']))->paginate(6),
         ]);
     }
 
-    //Show single listing
-    public function show(Listing $listing) {
-        return view('listings.show', [
-            'listing' => $listing
-        ]);
+    /**
+     * Show a listing.
+     *
+     * @param  Listing  $listing
+     *
+     * @return View
+     */
+    public function show(Listing $listing): View
+    {
+        return view('listings.show', ['listing' => $listing]);
     }
 
-    // Show Create Form
-    public function create() {
-        return view('listings.create');
-    }
-
-    // Store Listing Data
-    public function store(Request $request) {
-        $formFields = $request->validate([
-            'title' => 'required',
-            'company' => ['required', Rule::unique('listings', 'company')],
-            'location' => 'required',
-            'website' => 'required',
-            'email' => ['required', 'email'],
-            'tags' => 'required',
-            'description' => 'required'
-        ]);
-
-        if($request->hasFile('logo')) {
-            $formFields['logo'] = $request->file('logo')->store('logos', 'public');
-        }
-
-        $formFields['user_id'] = auth()->id();
-
-        Listing::create($formFields);
-
-        return redirect('/')->with('message', 'Listing created successfully!');
-    }
-
-    // Show Edit Form
-    public function edit(Listing $listing) {
+    /**
+     * Show the edit form.
+     *
+     * @param  Listing  $listing
+     *
+     * @return View
+     */
+    public function edit(Listing $listing): View
+    {
         return view('listings.edit', ['listing' => $listing]);
     }
 
-    // Update Listing Data
-    public function update(Request $request, Listing $listing) {
-        // Make sure logged in user is owner
-        if($listing->user_id != auth()->id()) {
-            abort(403, 'Unauthorized Action');
-        }
-        
-        $formFields = $request->validate([
-            'title' => 'required',
-            'company' => ['required'],
-            'location' => 'required',
-            'website' => 'required',
-            'email' => ['required', 'email'],
-            'tags' => 'required',
-            'description' => 'required'
-        ]);
+    /**
+     * Update the listing.
+     *
+     * @param  ListingUpdateRequest  $request
+     * @param  Listing               $listing
+     *
+     * @return RedirectResponse
+     */
+    public function update(ListingUpdateRequest $request, Listing $listing): RedirectResponse
+    {
+        $data = $request->validated();
 
-        if($request->hasFile('logo')) {
-            $formFields['logo'] = $request->file('logo')->store('logos', 'public');
+        if ($request->hasFile('logo')) {
+            $data['logo'] = $request->file('logo')->store('logos', 'public');
         }
 
-        $listing->update($formFields);
+        $listing->update($data);
 
         return back()->with('message', 'Listing updated successfully!');
     }
 
-    // Delete Listing
-    public function destroy(Listing $listing) {
-        // Make sure logged in user is owner
-        if($listing->user_id != auth()->id()) {
-            abort(403, 'Unauthorized Action');
+    /**
+     * Store a new listing.
+     *
+     * @param  ListingCreateRequest  $request
+     *
+     * @return RedirectResponse
+     */
+    public function store(ListingCreateRequest $request): RedirectResponse
+    {
+        $data = $request->validated();
+
+        if ($request->hasFile('logo')) {
+            $data['logo'] = $request->file('logo')->store('logos', 'public');
         }
-        
-        $listing->delete();
-        return redirect('/')->with('message', 'Listing deleted successfully');
+
+        $data['user_id'] = auth()->id();
+
+        Listing::create($data);
+
+        return redirect('/')->with('message', 'Listing created successfully!');
     }
 
-    // Manage Listings
-    public function manage() {
-        return view('listings.manage', ['listings' => auth()->user()->listings()->get()]);
+    /**
+     * Show the create listing form
+     *
+     * @return View
+     */
+    public function create(): View
+    {
+        return view('listings.create');
+    }
+
+    /**
+     * Delete the listing.
+     *
+     * @param  Listing  $listing
+     *
+     * @return RedirectResponse
+     */
+    public function destroy(Listing $listing): RedirectResponse
+    {
+        abort_if($listing->user_id !== auth()->id(), 403, 'Unauthorized action');
+
+        $listing->delete();
+
+        return redirect('/')->with('message', 'Listing deleted successfully');
     }
 }
