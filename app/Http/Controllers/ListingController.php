@@ -41,6 +41,7 @@ class ListingController extends Controller
 
         if($request->hasFile('logo')) {
             $formFields['logo'] = $request->file('logo')->store('logos', 'public');
+            $formFields['logo'] = 'storage/'.$formFields['logo'];
         }
 
         $formFields['user_id'] = auth()->id();
@@ -61,7 +62,7 @@ class ListingController extends Controller
         if($listing->user_id != auth()->id()) {
             abort(403, 'Unauthorized Action');
         }
-        
+
         $formFields = $request->validate([
             'title' => 'required',
             'company' => ['required'],
@@ -87,7 +88,7 @@ class ListingController extends Controller
         if($listing->user_id != auth()->id()) {
             abort(403, 'Unauthorized Action');
         }
-        
+
         $listing->delete();
         return redirect('/')->with('message', 'Listing deleted successfully');
     }
