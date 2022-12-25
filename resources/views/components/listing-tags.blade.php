@@ -2,6 +2,10 @@
 
 @php
 $tags = explode(',', $tagsCsv);
+
+// Remove whitespaces from the beginning and end of each element
+$tags = array_map('trim', $tags);
+
 @endphp
 
 <ul class="flex">
