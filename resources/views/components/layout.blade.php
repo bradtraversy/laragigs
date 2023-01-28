@@ -233,7 +233,7 @@
                             <a href="" class="hover:underline">Login</a>
                         </li>
                         <li class="mb-4">
-                            <a href="" class="hover:underline">Find jobs</a>
+                            <a href="" class="hover:underline">Find Jobs</a>
                         </li>
                         <li>
                             <a href="" class="hover:underline">Set Alerts</a>
@@ -253,7 +253,7 @@
                             <a href="" class="hover:underline">Contact Us</a>
                         </li>
                         <li>
-                            <a href="" class="hover:underline">Faq</a>
+                            <a href="" class="hover:underline">FAQ</a>
                         </li>
                     </ul>
                 </div>
