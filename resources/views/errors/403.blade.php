@@ -44,7 +44,8 @@
                         <span class="text-red-500">Oops!</span> Access Denied
                     </p>
                     <p class="mb-8 text-center text-gray-500 md:text-lg">
-                        You are not allowed to enter here
+                        You are not allowed to access this page. If you think iuts an error kindly contact the system
+                        administrator for help!
                     </p>
                     <a href="{{ route('home') }}" class="px-6 py-2 text-sm font-semibold text-blue-800 bg-blue-100">Go
                         home</a>
