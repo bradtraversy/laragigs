@@ -1,42 +1,44 @@
 <x-layout>
-  <a href="/" class="inline-block text-black ml-4 mb-4"><i class="fa-solid fa-arrow-left"></i> Back
-  </a>
-  <div class="mx-4">
-    <x-card class="p-10">
-      <div class="flex flex-col items-center justify-center text-center">
-        <img class="w-48 mr-6 mb-6"
-          src="{{$listing->logo ? asset('storage/' . $listing->logo) : asset('/images/no-image.png')}}" alt="" />
+    <a href="/" class="inline-block mb-4 ml-4 text-gray-200"><i class="fa-solid fa-arrow-left"></i> Back
+    </a>
+    <div class="mx-4 text-gray-200">
+        <x-card class="p-10">
+            <div class="flex flex-col items-center justify-center text-center">
+                <img class="w-48 mb-6 mr-6"
+                    src="{{ $listing->logo ? asset('storage/' . $listing->logo) : asset('/images/no-image.png') }}"
+                    alt="" />
 
-        <h3 class="text-2xl mb-2">
-          {{$listing->title}}
-        </h3>
-        <div class="text-xl font-bold mb-4">{{$listing->company}}</div>
+                <h3 class="mb-2 text-2xl">
+                    {{ $listing->title }}
+                </h3>
+                <div class="mb-4 text-xl font-bold">{{ $listing->company }}</div>
 
-        <x-listing-tags :tagsCsv="$listing->tags" />
+                <x-listing-tags :tagsCsv="$listing->tags" />
 
-        <div class="text-lg my-4">
-          <i class="fa-solid fa-location-dot"></i> {{$listing->location}}
-        </div>
-        <div class="border border-gray-200 w-full mb-6"></div>
-        <div>
-          <h3 class="text-3xl font-bold mb-4">Job Description</h3>
-          <div class="text-lg space-y-6">
-            {{$listing->description}}
+                <div class="my-4 text-lg">
+                    <i class="fa-solid fa-location-dot"></i> {{ $listing->location }}
+                </div>
+                <div class="w-full mb-6 border border-gray-200"></div>
+                <div>
+                    <h3 class="mb-4 text-3xl font-bold">Job Description</h3>
+                    <div class="space-y-6 text-lg">
+                        {{ $listing->description }}
 
-            <a href="mailto:{{$listing->email}}"
-              class="block bg-laravel text-white mt-6 py-2 rounded-xl hover:opacity-80"><i
-                class="fa-solid fa-envelope"></i>
-              Contact Employer</a>
+                        <a href="mailto:{{ $listing->email }}"
+                            class="block py-2 mt-6 text-white bg-laravel rounded-xl hover:opacity-80 hover:bg-gray-600"><i
+                                class="fa-solid fa-envelope"></i>
+                            Contact Employer</a>
 
-            <a href="{{$listing->website}}" target="_blank"
-              class="block bg-black text-white py-2 rounded-xl hover:opacity-80"><i class="fa-solid fa-globe"></i>
-              Visit Website</a>
-          </div>
-        </div>
-      </div>
-    </x-card>
+                        <a href="{{ $listing->website }}" target="_blank"
+                            class="block py-2 text-white bg-gray-800 hover:underline rounded-xl hover:opacity-80"><i
+                                class="fa-solid fa-globe"></i>
+                            Visit Website</a>
+                    </div>
+                </div>
+            </div>
+        </x-card>
 
-    {{-- <x-card class="mt-4 p-2 flex space-x-6">
+        {{-- <x-card class="flex p-2 mt-4 space-x-6">
       <a href="/listings/{{$listing->id}}/edit">
         <i class="fa-solid fa-pencil"></i> Edit
       </a>
@@ -47,5 +49,5 @@
         <button class="text-red-500"><i class="fa-solid fa-trash"></i> Delete</button>
       </form>
     </x-card> --}}
-  </div>
+    </div>
 </x-layout>
