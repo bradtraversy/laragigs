@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\CountiesController;
 use App\Http\Controllers\ListingController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -64,3 +65,5 @@ Route::get('/login', [UserController::class, 'login'])->name('login')->middlewar
 
 // Log In User
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
+
+Route::get('/data', [CountiesController::class, 'create']);//->name('login')->middleware('guest');

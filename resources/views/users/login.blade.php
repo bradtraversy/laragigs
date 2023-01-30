@@ -71,12 +71,15 @@
                     <p class="mt-1 text-xs text-red-500">{{ $message }}</p>
                 @enderror
             </div>
+
             <a href="#">
-                <span></span>
-                <span></span>
-                <span></span>
-                <span></span>
-                Submit
+                <button type="submit"> {{--  class="px-4 py-2 text-white rounded bg-laravel hover:bg-black" --}}
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    Sign In
+                </button>
             </a>
             <div class="mt-8 text-gray-400">
                 <p>

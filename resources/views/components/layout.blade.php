@@ -207,12 +207,20 @@
 
     <footer class="p-4 bg-white sm:p-6 dark:bg-gray-900">
         <div class="md:flex md:justify-between">
-            <div class="mb-6 md:mb-0">
+            <div class="mb-6 md:mb-0 md:w-1/4">
                 <a href="{{ route('home') }}" class="items-center ">
-                    <img src="{{ url('app/logo.png') }}" class="h-10 mx-auto mr-3" alt="Logo" />
-                    <span
-                        class="self-center mx-auto text-2xl font-semibold whitespace-nowrap dark:text-white">JobsGigs</span>
+                    <img src="{{ url('app/logo.png') }}" class="h-10 mr-3" alt="Logo" />
+                    <span class="self-center mx-auto text-2xl font-semibold whitespace-nowrap dark:text-white">
+                        JobsGigs
+                    </span>
                 </a>
+                <p>
+                    <br>
+                    <span class="self-center text-xs font-semibold dark:text-white md:w-1/4">
+                        JobGigs can help you advance your career.
+                        Create a free account, fill out your information, and be matched with your ideal employment.
+                    </span>
+                </p>
             </div>
             <div class="grid grid-cols-2 gap-8 sm:gap-6 sm:grid-cols-4">
                 <div>
