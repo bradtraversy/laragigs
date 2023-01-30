@@ -11,6 +11,7 @@ class ListingController extends Controller
     // Show all listings
     public function index()
     {
+        SitemapGenerator::create('https://example.com')->writeToFile($path);
         return view('listings.index', [
             'listings' => Listing::latest()->filter(request(['tag', 'search']))->paginate(12)
         ]);

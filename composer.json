@@ -10,7 +10,8 @@
         "itsgoingd/clockwork": "^5.1",
         "laravel/framework": "^9.2",
         "laravel/sanctum": "^2.14.1",
-        "laravel/tinker": "^2.7"
+        "laravel/tinker": "^2.7",
+        "spatie/laravel-sitemap": "^6.2"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",
