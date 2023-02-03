@@ -61,7 +61,7 @@ class ListingController extends Controller
         if($listing->user_id != auth()->id()) {
             abort(403, 'Unauthorized Action');
         }
-        
+
         $formFields = $request->validate([
             'title' => 'required',
             'company' => ['required'],
@@ -87,7 +87,7 @@ class ListingController extends Controller
         if($listing->user_id != auth()->id()) {
             abort(403, 'Unauthorized Action');
         }
-        
+
         $listing->delete();
         return redirect('/')->with('message', 'Listing deleted successfully');
     }

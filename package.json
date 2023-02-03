@@ -7,10 +7,12 @@
         "watch-poll": "mix watch -- --watch-options-poll=1000",
         "hot": "mix watch --hot",
         "prod": "npm run production",
-        "production": "mix --production"
+        "production": "mix --production",
+        "cypress:open": "cypress open"
     },
     "devDependencies": {
         "axios": "^0.25",
+        "cypress": "^12.4.1",
         "laravel-mix": "^6.0.6",
         "lodash": "^4.17.19",
         "postcss": "^8.1.14"

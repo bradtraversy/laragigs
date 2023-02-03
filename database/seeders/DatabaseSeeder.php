@@ -19,17 +19,17 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(5)->create();
 
-        $user = User::factory()->create([
-            'name' => 'John Doe',
-            'email' => 'john@gmail.com'
-        ]);
+        $users = User::factory(5)->create()
+                                 ->pluck('id')->toArray();
 
-        Listing::factory(6)->create([
-            'user_id' => $user->id
-        ]);
+        foreach ($users as $uid) {
+            Listing::factory(20)->create([
+                'user_id' => $uid
+            ]);
+        }
 
         // Listing::create([
-        //     'title' => 'Laravel Senior Developer', 
+        //     'title' => 'Laravel Senior Developer',
         //     'tags' => 'laravel, javascript',
         //     'company' => 'Acme Corp',
         //     'location' => 'Boston, MA',
