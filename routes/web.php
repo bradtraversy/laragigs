@@ -29,6 +29,7 @@ use App\Models\Listing;
 
 // All Listings
 Route::get('/', [ListingController::class, 'index'])->name('home');
+Route::get('/search', [ListingController::class, 'search'])->name('search');
 
 // Show Create Form
 Route::get('/listings/create', [ListingController::class, 'create'])->middleware('auth');

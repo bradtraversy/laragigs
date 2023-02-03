@@ -11,7 +11,8 @@
         "laravel/framework": "^9.2",
         "laravel/sanctum": "^2.14.1",
         "laravel/tinker": "^2.7",
-        "spatie/laravel-sitemap": "^6.2"
+        "spatie/laravel-sitemap": "^6.2",
+        "tinymce/tinymce": "^6.3"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

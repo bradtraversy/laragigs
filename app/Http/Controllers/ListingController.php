@@ -11,12 +11,41 @@ class ListingController extends Controller
     // Show all listings
     public function index()
     {
-        SitemapGenerator::create('https://example.com')->writeToFile($path);
+        // SitemapGenerator::create('https://example.com')->writeToFile($path);
         return view('listings.index', [
             'listings' => Listing::latest()->filter(request(['tag', 'search']))->paginate(12)
         ]);
     }
 
+    public function search(Request $request)
+    {
+        // dd(1);
+        $name = $request->name;
+        $occupation = $request->occupation;
+        if ($occupation == 'all') {
+            $listings = Listing::where('title', 'like', '%' . $name  . '%')
+                ->orWhere('description', 'like', '%' . $name  . '%')
+                ->orWhere('tags', 'like', '%' . $name  . '%')->paginate(12);
+        } else {
+            if ($name == '') {
+                $listings = Listing::where('occupation', 'like', '%' . $occupation  . '%')->paginate(12);
+            } else {
+                # code...
+                $listings =  Listing::where(function ($query) use ($name) {
+                    return $query->where('title', 'like', '%' . $name  . '%')
+                        ->orWhere('description', 'like', '%' . $name  . '%')
+                        ->orWhere('tags', 'like', '%' . $name  . '%');
+                })->where(function ($query) use ($occupation) {
+                    return $query->where('occupation', 'like', '%' . $occupation  . '%');
+                })->paginate(12);
+            }
+        }
+        // dd($listings);
+        $d['listings'] = $listings;
+        $d['name'] = $occupation;
+        $d['occupation'] = $occupation;
+        return view('listings.index', $d);
+    }
     //Show single listing
     public function show(Listing $listing)
     {
