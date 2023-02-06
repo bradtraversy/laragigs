@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+    <url>
+        <loc>http://localhost/listing/1</loc>
+        <lastmod>2023-01-30T17:02:08+00:00</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.9</priority>
+        </url>
+    <url>
+        <loc>http://localhost/listing/2</loc>
+        <lastmod>2023-01-30T17:02:08+00:00</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.9</priority>
+        </url>
+    <url>
+        <loc>http://localhost/listing/3</loc>
+        <lastmod>2023-01-30T17:02:08+00:00</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.9</priority>
+        </url>
+    <url>
+        <loc>http://localhost/listing/4</loc>
+        <lastmod>2023-01-30T17:02:08+00:00</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.9</priority>
+        </url>
+    <url>
+        <loc>http://localhost/listing/5</loc>
+        <lastmod>2023-01-30T17:02:08+00:00</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.9</priority>
+        </url>
+    <url>
+        <loc>http://localhost/listing/6</loc>
+        <lastmod>2023-01-30T17:02:08+00:00</lastmod>
+        <changefreq>yearly</changefreq>
+        <priority>0.9</priority>
+        </url>
+</urlset>
