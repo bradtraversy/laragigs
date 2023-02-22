@@ -29,7 +29,7 @@ When uploading listing files, they go to "storage/app/public". Create a symlink 
 php artisan storage:link
 ```
 
-### Running Then App
+### Running The App
 Upload the files to your document root, Valet folder or run 
 ```
 php artisan serve
