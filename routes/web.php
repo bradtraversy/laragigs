@@ -64,3 +64,7 @@ Route::get('/login', [UserController::class, 'login'])->name('login')->middlewar
 
 // Log In User
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
+
+Route::get('/hello', function() {
+    return response('Hello world');
+});
