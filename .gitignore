@@ -1,14 +1,31 @@
-/node_modules
-/public/hot
-/public/storage
-/storage/*.key
-/vendor
-.env
-.env.backup
-.phpunit.result.cache
+# OS
+.DS_Store
+
+# IDE and local environment
+/.idea/
+/.vscode/
 Homestead.json
 Homestead.yaml
+
+# Packages
+/vendor/
+/node_modules/
 npm-debug.log
 yarn-error.log
-/.idea
-/.vscode
+
+# Application
+.env
+.env.backup
+/public/build/
+# "storage" could be a symlink thus a file
+/public/storage
+/public/vendor/
+/public/hot
+/public/mix-manifest.json
+/storage/*.key
+
+# Tests
+.phpunit.result.cache
+.php_cs.cache
+
+# Distribution
