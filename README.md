@@ -2,7 +2,7 @@
 
 An app for listing Laravel gigs/jobs. This project is from my YouTube "[Laravel From Scratch 2022](https://www.youtube.com/watch?v=MYyJ4PuL4pY)" course.
 
-![Alt text](/public/images/screen.png "LaraGigs")
+![LaraGigs](/public/images/screen.png "LaraGigs")
 
 ## Usage
 
@@ -12,7 +12,7 @@ This app uses MySQL. To use something different, open up config/Database.php and
 To use MySQL, make sure you install it, setup a database and then add your db credentials(database, username and password) to the .env.example file and rename it to .env
 
 ### Migrations
-To create all the nessesary tables and columns, run the following
+To create all the necessary tables and columns, run the following
 ```
 php artisan migrate
 ```
