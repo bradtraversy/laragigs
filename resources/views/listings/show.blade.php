@@ -1,7 +1,7 @@
 <x-layout>
   <a href="/" class="inline-block ml-4 mb-4 text-white"><i class="fa-solid fa-arrow-left"></i> Back
   </a>
-  <div class="mx-4">
+  <div class="mx-4 text-white-50">
     <x-card class="p-10 text-white">
       <div class="flex flex-col items-center justify-center text-center">
         <img class="w-48 mr-6 mb-6"

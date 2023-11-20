@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use symfony\component\Http\Foundation\Response;
 
+
 class Admin
 {
     /**

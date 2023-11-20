@@ -1,5 +1,5 @@
 <x-layout>
-  <x-card class="p-10">
+  <x-card class="p-10 text-white-50">
     <header>
       <h1 class="text-3xl text-center font-bold my-6 uppercase">
         Manage Gigs
