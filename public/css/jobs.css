@@ -1,0 +1,147 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+main{
+   position: relative;
+   padding: 0;
+
+}
+
+.main-container{
+   position: relative;
+	display: grid;
+	grid-template-columns: 5fr auto 1.5fr;
+    grid-auto-flow: column;
+	gap: 1rem;
+}
+
+.left{
+   width: 100%;
+  position: sticky;
+  display: grid;
+  top: var(--stk-top-left);
+}
+
+
+
+.main-body{
+    padding: 0 10px 10px 20px;
+}
+
+
+ h1{
+    margin: 20px 10px;
+    font-size: 1rem;
+    text-align: center;
+ }
+
+/* job post end */
+ .ac{
+   height: 100%;
+   width: 2px;
+  background: palevioletred;
+  box-shadow: 0 20px 30px #111;
+  border: var(--color-gry) 1px solid;
+  border-radius: 50%;
+  position: sticky;
+ }
+
+ .right{
+   width: 100%;
+   position: sticky;
+   display: grid;
+   top: var(--stk-top-right);
+    order:2;
+
+}
+
+ .con-header ol button{
+   position: relative;
+  display: flex;
+  left: 20%;
+ }
+
+#sign-up{
+   position: relative;
+   display: flex;
+   left: 1rem;
+}
+ .t-blogs{
+   font-weight: 600;
+ }
+
+ .nav-link span{
+   display: flex;
+ }
+
+/* footer start */
+.footer{
+   text-align: center;
+   position: sticky;
+   width: 100%;
+
+}
+
+.footer .share #share{
+   margin: 0 .4rem;
+   height: 2rem;
+   width: 2rem;
+   line-height: 3rem;
+   border-radius: 50%;
+   font-size: 1.2rem;
+   color: var(--color-black);
+   background-color: var(--color-white);
+}
+
+.footer .share #share:hover{
+   background-color: var(--purple);
+}
+
+.footer .credit{
+   margin-top: 2.5rem;
+   padding-top: 2.5rem;
+   color: var(--color-black);
+   font-size: 1.3rem;
+   border-top: .1rem solid var(--color-danger);
+}
+
+.footer .credit span{
+   color: var(--purple);
+}
+
+/* footer end */
+
+/*  feedback */
+#container-fluid{
+   position: absolute;
+   width: 100%;
+}
+
+
+@media ( max-width:768px){
+   .nav-item .nav-link span {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+   }
+   .left{
+      display: grid;
+
+   }
+
+      .main-container{
+         grid-template-columns: 100vw;
+       margin: 1rem; padding: 1rem;
+      }
+      .ac{
+         display: none;
+      }
+   .right .con-header{
+      display: none;
+   }
+   .card{
+      width: 100%;
+   }
+}

@@ -7,7 +7,7 @@
       Lara<span class="text-black">Gigs</span>
     </h1>
     <p class="text-2xl text-gray-200 font-bold my-4">
-      Find or post Laravel jobs & projects
+      Find or post jobs & projects
     </p>
     <div>
       @auth

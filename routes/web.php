@@ -1,10 +1,11 @@
 <?php
 
-use App\Http\Controllers\ListingController;
-use App\Http\Controllers\UserController;
+use App\Models\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Models\Listing;
+use App\Http\Controllers\BlogController;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ListingController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,31 +25,32 @@ use App\Models\Listing;
 // store - Store new listing
 // edit - Show form to edit listing
 // update - Update listing
-// destroy - Delete listing  
+// destroy - Delete listing
 
-// All Listings
-Route::get('/', [ListingController::class, 'index']);
 
-// Show Create Form
-Route::get('/listings/create', [ListingController::class, 'create'])->middleware('auth');
+    // All Listings
+    Route::get('/', [ListingController::class, 'index']);
 
-// Store Listing Data
-Route::post('/listings', [ListingController::class, 'store'])->middleware('auth');
+    // Show Create Form
+    Route::get('/listings/create', [ListingController::class, 'create'])->middleware('admin');
 
-// Show Edit Form
-Route::get('/listings/{listing}/edit', [ListingController::class, 'edit'])->middleware('auth');
+    // Store Listing Data
+    Route::post('/listings', [ListingController::class, 'store'])->middleware('admin');
 
-// Update Listing
-Route::put('/listings/{listing}', [ListingController::class, 'update'])->middleware('auth');
+    // Show Edit Form
+    Route::get('/listings/{listing}/edit', [ListingController::class, 'edit'])->middleware('admin');
 
-// Delete Listing
-Route::delete('/listings/{listing}', [ListingController::class, 'destroy'])->middleware('auth');
+    // Update Listing
+    Route::put('/listings/{listing}', [ListingController::class, 'update'])->middleware('admin');
 
-// Manage Listings
-Route::get('/listings/manage', [ListingController::class, 'manage'])->middleware('auth');
+    // Delete Listing
+    Route::delete('/listings/{listing}', [ListingController::class, 'destroy'])->middleware('admin');
 
-// Single Listing
-Route::get('/listings/{listing}', [ListingController::class, 'show']);
+    // Manage Listings
+    Route::get('/listings/manage', [ListingController::class, 'manage'])->middleware('admin');
+
+    // Single Listing
+    Route::get('/listings/{listing}', [ListingController::class, 'show'])->middleware('auth');
 
 // Show Register/Create Form
 Route::get('/register', [UserController::class, 'create'])->middleware('guest');
