@@ -5,28 +5,28 @@ use App\Http\Controllers\BlogController;
 use \App\Models\Blog;
 use Illuminate\Http\Request;
 
-// // All Listings
+// // All blogs
 Route::get('/main', [BlogController::class, 'main']);
 
 // // Show Create Form
 Route::get('/Blog/create', [BlogController::class, 'create'])->middleware('admin');
 
-// // Store Listing Data
-Route::post(' /blogs', [BlogController::class, 'store'])->middleware('admin');
+// // Store blog Data
+Route::post(' /blogs', [BlogController::class, 'store'])->middleware('auth');
 
 // // Show Edit Form
-Route::get('/Blog/{blog}/edit', [BlogController::class, 'edit'])->middleware('admin');
+Route::get('/Blog/{blog}/edit', [BlogController::class, 'edit'])->middleware('auth');
 
-// // Update Listing
-Route::put('/Blog/{blog}', [BlogController::class, 'update'])->middleware('admin');
+// // Update blog
+Route::put('/Blog/{blog}', [BlogController::class, 'update'])->middleware('auth');
 
-// // Delete Listing
-Route::delete('/Blog/{blog}', [BlogController::class, 'destroy'])->middleware('admin');
+// // Delete blog
+Route::delete('/Blog/{blog}', [BlogController::class, 'destroy'])->middleware('auth');
 
-// Single Listing
-Route::get('/Blog/{blog}', [BlogController::class, 'show']);
+// Single blog
+Route::post('/Blog/{blog}', [BlogController::class, 'show']);
 
-// // Manage Listings
+// // Manage blog
 Route::get('/Blog/manage', [BlogController::class, 'manage'])->middleware('auth');
 
 

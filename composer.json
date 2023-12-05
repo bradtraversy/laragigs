@@ -8,9 +8,17 @@
         "php": "^8.0.2",
         "guzzlehttp/guzzle": "^7.2",
         "itsgoingd/clockwork": "^5.1",
+        "kamona/kui-laravel-jetstream": "*",
+        "laravel-ready/fortify-ui": "*",
         "laravel/framework": "^9.2",
+        "laravel/jetstream": "^3.0",
         "laravel/sanctum": "^2.14.1",
-        "laravel/tinker": "^2.7"
+        "laravel/tinker": "^2.7",
+        "laravel/ui": "^4.2",
+        "livewire/livewire": "^2.11",
+        "symfony/http-client": "*",
+        "symfony/mailgun-mailer": "*",
+        "ycore/fortify-ui": "*"
     },
     "require-dev": {
         "fakerphp/faker": "^1.9.1",

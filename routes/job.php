@@ -4,7 +4,9 @@ use App\Models\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ListingController;
 
 /*
@@ -29,24 +31,3 @@ use App\Http\Controllers\ListingController;
 
 //All Jobs
 Route::get('/jobs', [ListingController::class, 'jobs']);
-
-// Show Create Form
-Route::get('/listings/create', [ListingController::class, 'create'])->middleware('auth');
-
-// Store Listing Data
-Route::post('/listings', [ListingController::class, 'store'])->middleware('auth');
-
-// Show Edit Form
-Route::get('/listings/{listing}/edit', [ListingController::class, 'edit'])->middleware('auth');
-
-// Update Listing
-Route::put('/listings/{listing}', [ListingController::class, 'update'])->middleware('auth');
-
-// Delete Listing
-Route::delete('/listings/{listing}', [ListingController::class, 'destroy'])->middleware('auth');
-
-// Manage Listings
-Route::get('/listings/manage', [ListingController::class, 'manage'])->middleware('auth');
-
-// Single Listing
-Route::get('/listings/{listing}', [ListingController::class, 'show']);

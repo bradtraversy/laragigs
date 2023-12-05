@@ -12,16 +12,14 @@ main{
 .main-container{
    position: relative;
 	display: grid;
-	grid-template-columns: 5fr auto 1.5fr;
-    grid-auto-flow: column;
+    grid-auto-flow: row;
 	gap: 1rem;
 }
 
 .left{
    width: 100%;
-  position: sticky;
-  display: grid;
-  top: var(--stk-top-left);
+   position:sticky;
+   display: grid;
 }
 
 
@@ -33,34 +31,24 @@ main{
 
  h1{
     margin: 20px 10px;
-    font-size: 1rem;
-    text-align: center;
  }
 
 /* job post end */
- .ac{
-   height: 100%;
-   width: 2px;
-  background: palevioletred;
-  box-shadow: 0 20px 30px #111;
-  border: var(--color-gry) 1px solid;
-  border-radius: 50%;
-  position: sticky;
- }
+ 
 
  .right{
    width: 100%;
-   position: sticky;
-   display: grid;
-   top: var(--stk-top-right);
     order:2;
-
+    position: sticky;
+    display: grid;
 }
-
+.con-header{
+margin: auto 0;
+}
  .con-header ol button{
    position: relative;
   display: flex;
-  left: 20%;
+
  }
 
 #sign-up{

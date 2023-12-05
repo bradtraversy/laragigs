@@ -4,7 +4,9 @@ namespace Database\Seeders;
 
 
 use App\Models\Blog;
+use App\Models\Team;
 use App\Models\User;
+use App\Models\Admin;
 use App\Models\Listing;
 use App\Models\Learning;
 use Illuminate\Database\Seeder;
@@ -19,12 +21,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(5)->create();
+        // User::factory(5)->create();
 
-        $user = User::factory()->create([
-            'name' => 'john',
-            'email' => 'test@example.com'
-        ]);
+        $user = User::factory()->create();
 
         Listing::factory(6)->create([
             'user_id' => $user->id
@@ -34,9 +33,29 @@ class DatabaseSeeder extends Seeder
             'user_id' => $user->id
         ]);
 
-          Learning::factory(6)->create([
+        Learning::factory(6)->create([
             'user_id' => $user->id
         ]);
+
+        // $user = Admin::factory()->create();
+
+        // $user = Admin::factory()->create([
+        //     'name' => 'Bill Burr',
+        //     'email' => 'name@example.com'
+        // ]);
+
+        // $user->ownedTeams()->save(Team::forceCreate([
+        //     'user_id' => $user->id,
+        //     'name' => explode('Dante', $user->name, 2)[0] . "'s Team",
+        //     'personal_team' => true,
+        // ]));
+
+        $user->ownedTeams()->save(Team::forceCreate([
+            'user_id' => $user->id,
+            'name' => explode('Dante', $user->name, 2)[0] . "'s Team",
+            'personal_team' => true,
+        ]));
+
         // Listing::create([
         //     'title' => 'Laravel Senior Developer',
         //     'tags' => 'laravel, javascript',

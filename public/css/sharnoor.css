@@ -535,7 +535,6 @@ margin-bottom: 0;
  .job-card .search-bar select{
     border: 1px solid rgb(190, 190, 190);
     padding: 10px;
-
  }
 
  .job-card .search-bar #category{
@@ -549,10 +548,11 @@ margin-bottom: 0;
  }
 
  .tags-bar{
-
     display: flex;
     padding: 5px;
     justify-content: space-between;
+    overflow: scroll;
+    max-width: 100%;
 
  }
 

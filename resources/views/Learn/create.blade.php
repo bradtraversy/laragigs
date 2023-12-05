@@ -19,7 +19,7 @@
 
       <div class="mb-6">
         <label for="Course" class="inline-block text-lg mb-2">Course</label>
-        <input type="text" class="border border-gray-200 rounded p-2 w-full" name="Course"
+        <input type="text" class="border border-gray-200 rounded p-2 w-full" name="course"
           placeholder="Example: Senior Laravel Developer" value="{{old('Course')}}" />
 
         @error('Course')

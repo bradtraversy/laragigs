@@ -13,7 +13,7 @@ return [
     |
     */
 
-    'default' => env('MAIL_MAILER', 'smtp'),
+    'default' => env('MAIL_MAILER', 'mailgun'),
 
     /*
     |--------------------------------------------------------------------------
@@ -36,7 +36,7 @@ return [
     'mailers' => [
         'smtp' => [
             'transport' => 'smtp',
-            'host' => env('MAIL_HOST', 'smtp.mailgun.org'),
+            'host' => env('MAIL_HOST', 'smtp.gmail.com'),
             'port' => env('MAIL_PORT', 587),
             'encryption' => env('MAIL_ENCRYPTION', 'tls'),
             'username' => env('MAIL_USERNAME'),
@@ -91,9 +91,11 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'sharnoor0020@gmail.com'),
-        'name' => env('MAIL_FROM_NAME', 'Sharnoor Travel Agency'),
+        'address' => env('MAIL_FROM_ADDRESS', 'damalide20@gmail.com'),
+        'name' => env('MAIL_FROM_NAME', 'Dante Mwangi'),
     ],
+
+    'reply_to' => ['address' => 'example@example.com', 'name' => 'App Name'],
 
     /*
     |--------------------------------------------------------------------------

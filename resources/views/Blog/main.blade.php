@@ -5,8 +5,8 @@
 
     <h2>Subscribe to Our Newsletter</h2>
     <form action="/" method="POST">
-        <input type="email" name="email" placeholder="Enter your email" class="input-sub input-lg" required>
-        <button type="submit">Subscribe</button>
+        <x-input type="email" name="email" placeholder="Enter your email" class="input-sub input-lg" required/>
+        <x-button type="submit">Subscribe</x-button>
     </form>
 </section>
 
@@ -29,7 +29,7 @@
 
             @foreach ($blogs as $blog)
                 <div class="category_box">
-                    <img src="{{ $blog->logo ? asset('storage/' . $blog->logo) : asset('/images') }}"
+                    <img src="{{ $blog->image ? asset('storage/' . $blog->image) : asset('/images') }}"
                         alt="Want-Jobs-Abroad?" class="cat-img">
 
                     <div class="cat-title">{{ $blog->category }}</div>
@@ -101,11 +101,12 @@
         @else
             <p class="text-white">No blogs found</p>
         @endunless
+    
     </div>
 </div>
 <!-- join community -->
 <div class="join_section">
-    <h6 class="join_title">
+    <h6 class="join_title text-5xl">
         Join Our Travel Community <br> to Explore with us.
     </h6>
     <button class="btn bg_btn journey_btn">Join Now <i class="fa-solid fa-arrow-right"></i></button>
@@ -114,4 +115,4 @@
 <a href="/Blog/create" class="absolute top-1/3 right-10 bg-black text-white py-2 px-5">Create Blog</a>
 <!-- latest blog section -->
 
-@include('partials.footer')
+{{-- @include('partials.footer') --}}

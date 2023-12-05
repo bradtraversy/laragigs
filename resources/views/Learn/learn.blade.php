@@ -1,5 +1,8 @@
+<x-dashboard>
+{{-- @extends('components.dashboard') --}}
 
-@extends('components.dashboard')
+
+
 
 <section class="home" id="home">
     <div class="row">
@@ -49,6 +52,7 @@
           </div>
     </div>
 </section>
+@endslot
 <!--about section start-->
 <section class="about" id="about">
     <div class="row">
@@ -58,7 +62,7 @@
 
         <div class="content">
             <h3>Why Choose us?</h3>
-            <p>We are a diverse company aimed at connecting potential employers with job seekers. as a result, 
+            <p>We are a diverse company aimed at connecting potential employers with job seekers. as a result,
                 our main priority is the people, their needs, the laws of the land and sea.
 
                 We mainly focus on Gulf countries with an inclusion to Asia and UK.
@@ -68,6 +72,7 @@
     </div>
 </section>
 <!--about section end-->
+
 
 
 <!--courses start-->
@@ -85,7 +90,7 @@
     <p>No courses found</p>
     @endunless
 
-       
+
     </div>
     <div class="swiper-button-prev"></div>
     <div class="swiper-button-next"></div>
@@ -356,3 +361,5 @@
 </section>
 </footer>
 
+
+</x-dashboard>

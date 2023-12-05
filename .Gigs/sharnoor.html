@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0 maximum-scale=10.0" >
+    <meta name="author" content="Daniel Mwangi Maina">
+    <meta name="keywords" content="study as you work, jobs abroad, job opportunities in the middle east, talent with Business, financial freedom, " >
+    <meta name="description" content="skills, business, culture, tours, education, music, competitions, talents" >
+<title>Sharnoor Travel Agency  | Job Opportunities</title>
+<!-- css -->
+<link rel="stylesheet" type="text/css" href="./css/sharnoor.css">
+
+
+    <!-- bootstrap -->
+    <link rel="stylesheet" type="text/css"  href="./bootstrap5/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="./fontawesome6/css/all.min.css"/>
+    <link rel="stylesheet" href="./package/swiper-bundle.min.css"/>
+    <script src="./jquery-3.7.1.min.js"></script>
+   
+   
+</head>
+<body id="body">
+
+    <nav class="navbar fixed-top navbar-expand-lg"
+    id="navbar">
+        <div class="container-fluid">
+            <div class="navbar-brand">
+                <a href="#"> Sharnoor Travel Agency </a>
+            </div>
+          
+            <ul class="nav">
+                <li class="nav-item"> <a href="sharnoor.php"  class="nav-link"><i class="fa fa-home-alt mx-2 fs-4 px-0"></i> <br/>
+                    <span>Home</span></a></li>
+                   <li class="nav-item"><a href="jobs.html" class="nav-link"><i class="fa fa-person-digging mx-2 fs-4"></i> <br/>
+                   <span>Jobs</span> </a></li>
+                   
+                   <li class="nav-item"><a href="learning.html" class="nav-link"><i class="fa fa-book-reader px-0 mx-3 fs-4"></i><br/><span>
+                   E-portal</span></a></li>
+        
+                   <li class="nav-item"><a href="blog.html" class="nav-link"><i class="fa fa-blog px-2 fs-4 py-0"></i><br/>
+                    <span>Blog</span></a></li>
+        
+                    <li class="nav-item"><a href="gallery.html" class="nav-link"><i class="fa fa-photo-video px-2 fs-4"></i><br/>
+                        <span>Gallery</span></a></li>
+        
+                   <li class="nav-item"><a href="sharbout.html" class="nav-link"><i class="fa fa-info mx-3 fs-4"></i><br/>
+                   <span>About</span></a></li>
+                      </ul>
+
+                      <div id="side">
+                        <i class="fa fa-search" id="play"></i>
+                        <i class="fa fa-bell" id="play"></i>
+                    <i class="fa fa-bars-staggered px-2 fs-3"  id="show"></i>   
+                    
+                    <div class="search-bar">
+                        <input type="search" name="search" id="livesearch">
+                    </div>
+                
+                </div> 
+        </div>
+    </nav>
+
+      <main>
+      <section id="main-left">
+          
+            
+           <div id="hero-carousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="container-fluid">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="0" 
+                    class="active" aria-current="true" aria-label="slide 1"></button>
+                <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="1"   aria-label="slide 2"></button>
+                <button type="button" data-bs-target="#hero-carousel" data-bs-slide-to="2"   aria-label="slide 3"></button>
+
+            </div>
+    
+            <div  class="carousel-inner">
+                <div class="carousel-item active c-item">
+                    <img src="./design/s8.jpg" class="d-block w-100 img-fluid c-img" alt="slide 1">
+                    <div class="carousel-caption top-2 mt-4">
+                        <p class="mt-5 fs-3 text-uppercase">Work Abroad</p>
+                        <p class="display-5 fw-bolder text-capitalize" >Lorem, ipsum dolor.</p>
+                        <button class="btn btn-danger px-4 py-2 fs-5 mt-5" id="popup2" onclick = "openForm()">Apply Now</button>
+                    </div>
+                </div>
+                    <div class="carousel-item c-item">
+                        <img src="./design/s5.jpg" class="d-block w-100 img-fluid c-img" alt="slide 2">
+                        <div class="carousel-caption top-2 mt-4 py-6">
+                            <p class="mt-5 fs-3 text-uppercase">Get Services</p>
+                            <p class="display-5 fw-bolder text-capitalize">Lorem, ipsum dolor </p>
+                            <button class="btn btn-success px-4 py-2 fs-5 mt-5" id="popup1" onclick = "goForm()">Book Now</button>
+                        </div>
+                    </div>
+
+                    <div class="carousel-item c-item">
+                        <img src="./design/s4.jpg" class="d-block w-100 img-fluid c-img" alt="slide 3">
+                        <div class="carousel-caption top-2 mt-4 py-6">
+                            <p class="mt-5 fs-4 text-uppercase">Study Abroad</p>
+                            <p class="display-5 fw-bolder text-capitalize">Lorem, ipsum dolor. </p>
+                            <button class="btn btn-primary px-4 py-2 fs-5 mt-5" 
+                            onclick = "runForm()">Start Now</button>
+                            </div>
+                        </div>
+                    </div>
+                            
+ 
+            <button class="carousel-control-prev" type="button" data-bs-target="#hero-carousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+
+            <button class="carousel-control-next" type="button" data-bs-target="#hero-carousel" 
+            data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+            
+           </div>
+           </div>
+    
+           </section>
+           <section class="pop-up" id="pop-up">
+            <button class="btn btn-danger btn-lg  px-3" id="exit" onclick="closeForm()"><i class="fa fa-x"></i></button>
+                       
+            <form action="send.php" method="post" class="book form-horizontal" id="book" name="applyForm">
+                                    <h2>Apply Now</h2>
+                                    <div class="form1">
+                                        <label for="name">Names</label>
+                                        <input type="text" name="name" placeholder="Full Names"
+                                        class="px-4 py-2 shadow-xl rounded-xl placeholder-gray-50::placeholder">
+                                    </div>
+                
+                                    <div class="form1">
+                                    <label for="email">Email</label>
+                                    <input type="email" autocomplete="on" name="email" placeholder="name@example.com" class="px-2 py-2 shadow-xl 
+                                    rounded-xl placeholder-gry-80::placeholder" required>
+                                </div>
+                                    <div class="form1">
+                                    <label for="name">Job category</label>
+                                    <input type="text" autocomplete="on" placeholder="Job Post" name="category" id="job" class="px-4 py-2 shadow-xl 
+                                    rounded-xl placeholder-gray-50::placeholder" required>
+                                </div>
+                
+                                    <div class="form1">
+                                    <label for="category">Select Country</label>
+                                    <select name="message" id="category" class="cat">
+                                        <option value="" disabled>Countries</option>
+                                        <option value="">Canada</option>
+                                        <option value="">UK</option>
+                                        <option value="">Poland</option>
+                                        <option value="">Sychelles</option>
+                                        <option value="">Phillipines</option>
+                                        <option value="">Autralia</option>
+                                    </select>
+                                </div>
+                
+                                <div class="form1">
+                                    <label for="textarea" >Subject</label>
+                                    <textarea name="what can we do for you?" class="rounded-xl placeholder-gray-50::placeholder" 
+                    placeholder="How are you suitable for this role?" id="area" cols="30" rows="2"></textarea>
+                                        </div>
+                                
+                                 <button class="btn btn-success btn-lg px-3"
+                                  type="submit" name="send" value="submit">Submit</button>
+                               
+                                </form>
+                            
+                                
+                          
+                        </section>
+            <section class="pop-up1 go1" id="go1">
+                <button class="btn btn-danger btn-lg  px-3" id="exit1" onclick="exitForm()"><i class="fa fa-x"></i></button>
+               
+                <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" class="form-horizontal" id="book1" name="Form" role="form">
+                    <h2>Book a Service</h2>
+                    <div class="form1">
+                        <label for="name">Names</label>
+                        <input type="text" name="name" value="$name" placeholder="Full Names"
+                        class="px-4 py-2 shadow-xl rounded-xl placeholder-gray-50::placeholder">
+                    </div>
+
+                    <div class="form1">
+                    <label for="email">Email</label>
+                    <input type="email" autocomplete="on" value="$email" placeholder="name@example.com" class="px-2 py-2 shadow-xl 
+                    rounded-xl placeholder-gry-80::placeholder" required>
+                </div>
+
+                    <div class="form1">
+                    <label for="category">Select Service</label>
+                    <select name="" id="category">
+                        <option value="">Passport</option>
+                        <option value="">Visa</option>
+                        <option value="">Exam Booking</option>
+                        <option value="">Work Abroad</option>
+                        <option value="">E-Learning</option>
+                        <option value=""></option>
+                        <option value="">Autralia</option>
+                    </select>
+                </div>
+
+                <div class="form1">
+                    <label for="textarea">Comment</label>
+                    <textarea name="what can we do for you?" class="rounded-xl placeholder-gray-50::placeholder" 
+                    placeholder="Give description of the service you would like" id="area" cols="30" rows="2"></textarea>
+                </div>
+
+                
+                 <button class="btn btn-success btn-lg px-3"
+                  type="submit">Submit</button>
+               
+                </form>
+               
+            </section>
+
+            <section class="pop-up2 go2" id="go2">
+                <button class="btn btn-danger btn-lg  px-3" id="exit2" onclick="noForm()"><i class="fa fa-x"></i></button>
+                <form action="" method="post" class="form-horizontal" id="book2" >
+                    @csrf
+
+                    <h2>Enrol Here</h2>
+
+                    <div class="form1">
+                        <label for="name">Names</label>
+                        <input type="text" name="name" placeholder="Full Names"
+                        class="px-4 py-2 shadow-xl rounded-xl placeholder-gray-50::placeholder">
+                    </div>
+
+                    <div class="form1">
+                    <label for="email">Email</label>
+                    <input type="email" autocomplete="on" placeholder="name@example.com" class="px-2 py-2 shadow-xl 
+                    rounded-xl placeholder-gry-50::placeholder" required>
+                </div>
+
+                    <div class="form1">
+                    <label for="category">Select School</label>
+                    <select name="" id="category">
+                        <option value="">Passport</option>
+                        <option value="">Visa</option>
+                        <option value="">Exam Booking</option>
+                        <option value="">Work Abroad</option>
+                        <option value="">E-Learning</option>
+                        <option value="">Study Abroad</option>
+                        <option value="">Autralia</option>
+                    </select>
+                </div>
+
+                <div class="form1">
+                    <label for="textarea">Comment</label>
+                    <textarea name="what can we do for you?" class="rounded-xl" 
+                    placeholder="Describe mode of learning you would prefer" id="area" cols="30" rows="2"></textarea>
+                </div>
+
+                
+                 <button class="btn btn-success btn-lg px-3"
+                  type="submit">Submit</button>
+               
+                </form>
+            </section>
+
+          <!--chatting  start-->
+    <section class="sidebar" id="sidebar">
+        <div class="container">
+         
+            <a href="#" class="chat" id="chat"><i class="fas fa-commenting"></i></a>
+        </div>
+    </section>
+    <!-- <section class="chatting modal" id="chatting">
+
+        <div class="chat-box" id="chat-box">
+         <div id="closeBtn"> <i class="fa fa-x"></i> </div>
+       
+
+     <div class="profile">
+        <img src="./images/b1.jpg" class="box img-fluid" alt="#">
+        <div class="heading">
+            <h2>ADMIN <span> Sharnoor</span></h2>
+    </div>
+        
+        </div>
+    
+    <div class="blank">
+        <P>Talk to support care </P>
+        <ul id="send-me"></ul>
+
+      </div>
+<form action="validate.php" method="post">
+<div class="input-group align-content-center">
+      <label for="user_input"></label>
+      <input type="text" name="user_input" id="user_input-box" class="box1 input-sm">
+    
+          <button class="btn btn-outline-danger" id="send-chat" type="submit" ><span class="fa fa-envelope-open-text" aria-hidden="true"></span></button>
+        </div> 
+    </form>
+    </div>
+    
+    </section> -->
+    <section class="chatting" id="chatting">
+    <div class="wrapper" id="wrapper">
+   
+        <div class="title">  
+            <div id="closeBtn"><i class="fa fa-x"></i></div> 
+            <span>Talk to us</span>
+        </div>
+        <div class="form">
+            <div class="bot-inbox inbox">
+                <div class="icon">
+                    <i class="fas fa-user"></i>
+                </div>
+        
+            <div class="msg-header">
+                
+                <p>Hello there, How can i help?</p>
+            </div>
+            
+        </div>
+    </div>
+    <div class="typing-field">
+        <div class="input-data">
+            <input type="text" id="data" placeholder="Say Something...">
+            <button id="send-btn">Send</button>
+        </div> 
+    </div>
+    </div>
+</section>
+<!--chatting  end-->
+
+<section class="job-card">
+    <div class="container-fluid">
+    <div class="main-body">
+        <h1>Recent Jobs</h1>
+        <input type="search" placeholder="Search Jobs here..." id="search-me">
+        <div class="search-bar">
+        
+
+            <select name="" id="category">
+                <option value="">category</option>
+                <option value="">Nursing</option>
+                <option value="">Mechanics</option>
+                <option value="">Drivers</option>
+            </select>
+
+            <select class="filter">
+                <option value="filter">filter</option>
+              
+            </select>
+        </div>
+   
+
+
+<div class="tags-bar">
+    <div class="tag">
+        <i class="fas fas-times"></i>
+        <span>Programming</span>
+    </div>
+    <div class="tag">
+        <i class="fas fas-times"></i>
+        <span>Data Clerks</span>
+    </div>
+    <div class="tag">
+        <i class="fas fas-times"></i>
+        <span>Drivers</span>
+    </div>
+    <div class="tag">
+        <i class="fas fas-times"></i>
+        <span>Electricians</span>
+    </div>
+    <div class="tag">
+        <i class="fas fas-times"></i>
+        <span>Scaffolders</span>
+    </div>
+
+</div>
+</div>
+</div>
+</section>
+<!-- job session -->
+<section class="card-group">
+    <div class="container-fluid">
+<div class="row" id="row">
+    <div class="header">
+    <p>There are more than <span>400</span> Jobs</p>
+    <a href="jobs.html">See All</a>
+</div>
+
+<div class="job_card">
+
+    <div class="job-details">
+        <div class="img">
+            <a href="#"><i class="fas fa-car-burst"></i></a>
+            <h2>Mechanic</h2>
+            <span>Automatic Cars - Canada</span>
+        </div>
+       
+        <div class="job-salary">
+            <h4 class="fs-5">$6.7 - $12.4k /yr</h4>
+            <span>1 day ago</span>
+        </div>
+    </div>
+</div>
+<div class="job_card">
+
+    <div class="job-details">
+        <div class="img">
+            <a href="#"><i class="fa fa-dice-six"></i></a>
+            <h2>UX Designer</h2>
+            <span>Android Devices - Canada</span>
+        </div>
+        
+        <div class="job-salary">
+            <h4 class="fs-5">$15 - $40.4k /yr</h4>
+            <span>1 day ago</span>
+        </div>
+    </div>
+</div>
+<div class="job_card">
+
+    <div class="job-details">
+        <div class="img">
+            <a href="#"><i class="fa fa-user-nurse"></i></a>
+            <h2>Nurses</h2>
+            <span>Orthpaedic - Saudi Arabia</span>
+        </div>
+         
+        <div class="job-salary">
+            <h4 class="fs-5">$10 - $22.4k /yr</h4>
+            <span>1 day ago</span>
+        </div>
+    </div>
+</div>
+<div class="job_card">
+
+    <div class="job-details">
+        <div class="img">
+            <a href="#"><i class="fa fa-solar-panel"></i></a>
+            <h2>Electrician</h2>
+            <span>Solar Systems - Phillipines</span>
+        </div>
+       
+        <div class="job-salary">
+            <h4 class="fs-5">$9 - $16.4k /yr</h4>
+            <span>1 day ago</span>
+        </div>
+    </div>
+</div>
+<div class="job_card">
+
+    <div class="job-details">
+        <div class="img">
+            <a href="#"><i class="fa fa-car-alt"></i></a>
+            <h2>Driver</h2>
+            <span>Truck  - Rome</span>
+        </div>
+     
+        <div class="job-salary">
+            <h4 class="fs-5">$7.7 - $42.4k /yr</h4>
+            <span>1 day ago</span>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</section>
+
+<hr>
+<!-- services start -->
+<section class="services" id="services">
+    <div class="container">
+    <div class="service-header">
+        <div class="heading2">
+            Our<span> Services</span>
+            </div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae quidem aliquid nesciunt ab ut consequuntur, dolorem aperiam nobis vel iste nulla perferendis 
+                nostrum doloribus quo saepe illo veniam fugiat omnis.</p>
+        <button type="submit" class="btn btn-outline-danger" 
+        id="btn-mo" onclick = "goForm()">Book Now</button>
+        <div class="bons">
+       <a href=""><i class="fa fa-arrow-circle-left fs-2"></i></a>
+            <a href="#"><i class="fa fa-arrow-circle-right fs-2"></i></a>
+        </div>
+   
+    </div>
+    
+<div class="swiper row-slider">
+    
+<div class="swiper-wrapper">
+
+    <div class="swiper-slide slide">
+    <div class="flip-card">
+        <div class="flip-card-inner">
+          <div class="flip-card-front">
+            <img src="./design/s5.jpg" alt="Avatar" style="width:300px;height:300px;">
+          </div>
+          <div class="flip-card-back">
+            <h1>John Doe</h1>
+            <p>Architect & Engineer</p>
+            <p>We love that guy</p>
+          </div>
+        </div>
+      </div>
+</div>
+
+    <div class="swiper-slide slide">
+<div class="card-body">
+    <img src="./design/s5.jpg" alt="" class="img img-fluid">
+</div>
+
+    <p>
+    Passport Application
+    </p>
+  
+</div>
+
+
+
+    <div class="swiper-slide slide">
+        
+    <div class="card-body">
+        <img src="./design/s1.jpg" alt="" class="img img-fluid">
+    </div>
+    <div class="card-footer">
+        <p>
+        Visa Processing
+        </p>
+        </div>
+    </div>
+
+    
+        <div class="swiper-slide slide">
+            
+        <div class="card-body">
+            <img src="./design/s3.jpg" alt="" class="img img-fluid">
+        </div>
+        <div class="card-footer">
+            <p>
+            Job Connection
+            </p>
+            </div>
+        </div>
+        
+ 
+            <div class="swiper-slide slide">
+                
+            <div class="card-body">
+                <img src="./design/s4.jpg" alt="" class="img img-fluid">
+            </div>
+            <div class="card-footer">
+                <p>
+                Passport Application
+                </p>
+               
+                </div>
+            </div>
+ 
+        <div class="swiper-slide slide">
+            
+        <div class="card-body">
+            <img src="./design/s2.jpg" alt="" class="img img-fluid">
+        </div>
+        <div class="card-footer">
+            <p>
+            Passport Application
+            </p>
+         
+            </div>
+        </div>
+
+
+         
+            <div class="swiper-slide slide">
+                
+            <div class="card-body">
+                <img src="./design/s6.jpg" alt="" class="img img-fluid">
+            </div>
+            <div class="card-footer">
+                <p>
+                Passport Application
+                </p>
+            
+                </div>
+            </div>
+          
+                <div class="swiper-slide slide">
+                  
+                <div class="card-body">
+                    <img src="./design/s7.jpg" alt="" class="img img-fluid">
+                </div>
+                <div class="card-footer">
+                    <p>
+                    Passport Application
+                    </p>
+                   
+                    </div>
+                </div>
+             
+                    <div class="swiper-slide slide">
+                        
+                    <div class="card-body">
+                        <img src="./design/s8.jpg" alt="" class="img img-fluid">
+                    </div>
+                    
+                        <p>
+                        Passport Application
+                        </p>
+                    
+                    
+                       
+                  </div>
+                   
+                </div>  
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-button-next"></div>
+                <div class="swiper-pagination"></div>   
+</div>   <!--row 2-->
+
+
+</section>
+<!-- services end -->
+      <hr/>     
+     <!-- blogs start -->
+<section id="blogs">
+  
+    <div class="container">
+    <div class="row">
+
+      <div class="heading7">
+            Popular<span> Blogs</span>
+            </div>
+    <div class="col-md-4 py-3 py-md-0">
+    <div class="card">
+    <img src="./images/grand.jpg" alt="" class="img-fluid">
+    <div class="card-body">
+    <h5>Tume La Ahadi</h5>
+    <h6>Admin | 9th August 2022</h6>
+    <p>
+    So as you read on be aware
+    that much is in the eye of
+    the beholder. Who is right
+    and who is wrong? The
+    behavior patterns...
+
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quas alias corporis voluptatum odit? Eum libero dignissimos quae, praesentium recusandae itaque ut 
+    facere quasi ex esse sit consequatur odio accusantium amet.
+    </p>
+    <button id="blog-btn">Read more</button>
+    </div>
+    </div>
+    </div>
+    
+    
+    <div class="col-md-4 py-3 py-md-0">
+    <div class="card">
+    <img src="./images/give.jpg" alt="" class="img-fluid">
+    <div class="card-body">
+    <h5>Realty vs Perception </h5>
+    <h6>Admin | 6th August 2026</h6>
+    <p>
+    So
+    as you read on be aware
+    that much is in the eye of
+    the beholder. Who is right
+    and who is wrong? The
+    behavior patterns...
+
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea architecto vero amet voluptas culpa deleniti enim quam eos laboriosam ad quis laborum, 
+    labore quia minima officiis corrupti ducimus facilis aliquid.
+    </p>
+    <button id="blog-btn">Read more</button>
+    </div>
+    </div>
+    </div>
+    
+    <div class="col-md-4 py-3 py-md-0">
+    <div class="card">
+    <img src="./design/s9.jpeg" alt="" class="img-fluid"/>
+    <div class="card-body">
+    <h5>The Game</h5>
+    <h6>Admin | 6th August 2026</h6>
+    <p>
+    So
+    as you read on be aware that much is in the eye of the beholder. Who is right and who is wrong? The
+    behavior patterns...
+
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Iusto inventore reprehenderit corporis distinctio, quia culpa laborum ipsam at ipsum nesciunt ex minus 
+    facilis magnam pariatur! Accusantium aliquid in quasi dolor.
+    </p>
+    <button id="blog-btn">Read more</button>
+    </div>
+    </div>
+    </div>
+    
+    <button class="btn-outline-danger"  id="btn"><a href="blog.html">more blogs</a></button>
+    </div>
+    </div>
+
+    </section>
+    
+    <!-- blogs end -->
+
+
+    <!-- footer start -->
+<section class="feedback">
+    <div class="container-fluid">
+        <div class="feedback-session">
+    <div class="featured" id="featured">
+            <ol>
+                <h1>Featured Jobs</h1>
+                <a href="#">Jobs in Canada</a>
+                <a href="#">Jobs in Phillipines</a>
+                <a href="#">Jobs in Saudi Arabia</a>
+                <a href="#">Jobs in Poland</a>
+                <a href="#">Jobs in Sychelles</a>
+                <a href="#">Jobs in UK</a>
+            </ol>
+        </div>
+
+
+        
+        <div class="form">
+            <form action="send.php" method="post" class="form-horizontal" name="myForm" role="form" onsubmit="return validateForm()">
+                <h1 class="display-8">Feedback Area</h1>
+                <hr>
+                <div class="form-group">
+
+            <label for="name">Full Names: </label>
+                <input type="text" placeholder="Full Names" name="name" value="<?php echo $name;?>" class="form-control" id="name" required>
+            </div>
+    
+            <div class="form-group">
+                <label for="$email">Email: </label>
+                    <input type="email" name="email" placeholder="name@example.com" value="<?php echo $email;?>" class="form-control" id="email" required>
+                </div>
+    
+    
+            <div class="form-group">
+            <label for="text"> Feedback: </label>
+            <textarea name="comment" id="floatingTextarea" value="<?php echo $comment;?>" placeholder="Leave a Comment here" cols="30" rows="10">  </textarea>
+        </div>
+       
+                <button type="submit" name="send" value="send" class="btn btn-outline-danger" id="btn">Send</button>
+        
+            
+        </form>
+    </div>
+
+<div class="tred-jobs">
+            <h2>Trending Jobs</h2>
+        <div class="trending">
+            <a href="#">Drivers jobs in Rome</a>
+            <a href="#">Electricians jobs in Dubai</a>
+            <a href="#">Mechanic jobs in UK</a>
+            <a href="#">Nurse jobs in Canada</a>
+            <a href="#">Plumber jobs in Phillipines</a>
+            <a href="#">Spa jobs in Qatar</a>
+        </div>
+</div>
+
+</div>
+</div>
+</section>
+
+<footer class="footer">
+    <section>
+        <div class="share">
+            <a href="#" class="fab fa-facebook-f" id="share"></a>
+            <a href="#" class="fab fa-twitter" id="share"></a>
+            <a href="#" class="fab fa-linkedin" id="share"></a>
+            <a href="#" class="fab fa-instagram" id="share"></a>
+            <a href="#" class="fab fa-youtube" id="share"></a>
+        </div>
+        <div class="credit">&copy; copyright @ 2023 by <span>Lide Solutions</span> | all rights reserved!
+ </div>
+    </section>
+</footer>
+
+</div>
+
+</main>
+
+    <!-- footer end -->
+    <script type="text/javascript" language="javascript" 
+    src="./2.js"></script>
+    
+    <script type="text/javascript" language="javascript" 
+    src="./fontawesome6/js/all.min.js"></script>
+    <script type="text/javascript" language="javascript" 
+    src="./bootstrap5/js/bootstrap.min.js"></script>
+    <script type="text/javascript" language="javascript" src="./package/swiper.min.js"></script>
+    
+    <!-- <script>
+        const btnEl = document.getElementById('send-chat');
+const inputEl = document.getElementById('user_input-box');
+const listEl = document.getElementById('send-me');
+
+btnEl.addEventListener('click', () => {
+const inputValue = inputEl.value;
+listEl.insertAdjacentHTML('beforeend', '<li>${inputValue}</li>');
+});
+
+
+
+    </script> -->
+    <script>
+        $(document).ready(function(){
+            $("#send-btn").on("click", function(){
+                $value = $("#data").val();
+                $msg = '<div class="user-inbox inbox"><div class="msg-header"><p>'+ $value +'</p></div></div>';
+                $(".form").append($msg);
+                $("#data").val('');
+                
+                // start ajax code
+                $.ajax({
+                    url: 'message.php',
+                    type: 'POST',
+                    data: 'text='+$value,
+                    success: function(result){
+                        $replay = '<div class="bot-inbox inbox"><div class="icon"><i class="fas fa-user"></i></div><div class="msg-header"><p>'+ result +'</p></div></div>';
+                        $(".form").append($replay);
+                        // when chat goes down the scroll bar automatically comes to the bottom
+                        $(".form").scrollTop($(".form")[0].scrollHeight);
+                    }
+                });
+            });
+        });
+    </script>
+    <script>
+        var swiper = new Swiper(".row-slider", {
+            spaceBetween: 20, 
+            grabCursor: true,
+            loop: true,
+            paginationClickable: true,
+            
+            
+
+  pagination: {
+      el: ".swiper-pagination",
+        clickable: true, 
+        
+  },
+
+navigation: {
+    nextEl: ".swiper-button-next",
+    prevEl: ".swiper-button-prev",
+},
+
+breakpoints: {
+  480: {
+      sliderPerView: 1,
+  },
+  768: {
+      sliderPerView: 3,
+  },
+  1200: {
+      sliderPerView: 4,
+  },
+},
+});
+
+
+
+    </script>
+
+
+
+</body>
+</html>

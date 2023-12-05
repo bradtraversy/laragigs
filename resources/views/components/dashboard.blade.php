@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="" />
     <link rel="sylesheet" href="{{ asset('css/tailwind.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('app.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('css/blog.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('css/learning.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('bootstrap5/css/bootstrap.min.css') }}" />
@@ -81,7 +81,7 @@
                         <span>Gallery</span></a></li>
             </span>
             <span>
-                <li class="nav-item"><a href="sharbout.html" class="nav-link"><i class="fa fa-info mx-3 fs-4"></i><br />
+                <li class="nav-item"><a href="about.html" class="nav-link"><i class="fa fa-info mx-3 fs-4"></i><br />
                         <span>About</span></a></li>
             </span>
 
@@ -94,7 +94,7 @@
                         Welcome {{ auth()->user()->name }}
                     </span>
                 </li>
-               
+
                 <li>
                     <form class="inline" method="POST" action="/logout">
                         @csrf

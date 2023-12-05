@@ -5,7 +5,7 @@
     <x-card class="p-10 text-white">
       <div class="flex flex-col items-center justify-center text-center">
         <img class="w-48 mr-6 mb-6"
-          src="{{$listing->logo ? asset('storage/' . $listing->logo) : asset('/images/no-image.png')}}" alt="" />
+          src="{{$listing->image ? asset('storage/' . $listing->image) : asset('/images/no-image.png')}}" alt="" />
 
         <h3 class="text-2xl mb-2">
           {{$listing->title}}

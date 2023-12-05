@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('mode');
             $table->string('course');
             $table->longText('units');
-            $table->string('Fees',);
+            $table->string('fees',);
             $table->string('email');
             $table->string('number');
             $table->timestamps();

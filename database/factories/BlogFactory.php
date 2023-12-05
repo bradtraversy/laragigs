@@ -17,6 +17,7 @@ class BlogFactory extends Factory
     public function definition()
     {
         return [
+            'email' => $this->faker->companyEmail(),
             'category' => $this->faker->sentence(),
             'title' => $this->faker->sentence(),
             'tags' => 'laravel, api, backend',

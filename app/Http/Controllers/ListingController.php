@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class ListingController extends Controller
@@ -17,10 +18,10 @@ class ListingController extends Controller
         ]);
     }
 
-     public function jobs()
+    public function jobs()
     {
         return view('listings.jobs', [
-            'listings' => Listing::latest()->filter(request(['tag', 'search']))->paginate(6)
+            'listings' => Listing::latest()->filter(request(['tag', 'search']))->paginate(12)
         ]);
     }
     //Show single listing
@@ -71,7 +72,7 @@ class ListingController extends Controller
     public function update(Request $request, Listing $listing)
     {
         // Make sure logged in user is owner
-        if ($listing->user_id != auth()->id()) {
+        if ($listing->user_id != Auth::guard()->id()) {
             abort(403, 'Unauthorized Action');
         }
 
@@ -98,7 +99,7 @@ class ListingController extends Controller
     public function destroy(Listing $listing)
     {
         // Make sure logged in user is owner
-        if ($listing->user_id != auth()->id()) {
+        if ($listing->user_id != Auth::guard()->id()) {
             abort(403, 'Unauthorized Action');
         }
 
