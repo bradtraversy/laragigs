@@ -23,33 +23,35 @@
 
   </div>
 
-  <div class="mt-6 p-4">
+  {{-- <div class="mt-6 p-4">
     {{$listings->links()}}
-  </div>
+  </div> --}}
+{{--
+  <x-blog-card :blog="$blog" /> --}}
+{{-- <x-slot>
+  <div class="blog_section">
+    <div class="tag_section tag_center">
+        <h6 class="text-lg-center p-5">Popular Blogs</h6>
+        <div class="tag_indicator">
+            <div class="line"></div>
+            <div class="circle"></div>
 
-  {{-- <x-blog-card :blog="$blog" /> --}}
-
-    {{-- <div class="blog_section">
-        <div class="tag_section tag_center">
-            <h6 class="text-lg-center p-5">Popular Blogs</h6>
-            <div class="tag_indicator">
-                <div class="line"></div>
-                <div class="circle"></div>
-
-            </div>
         </div>
-
-        <div class="blog_section_box">
-        @unless(count($blogs) == 0)
-
-        @foreach($blogs as $blog)
-        <x-blog-card :blog="$blog"/>
-        @endforeach
-
-        @else
-        <p class="text-white">No blogs found</p>
-        @endunless
     </div>
-    </div> --}}
+
+    <div class="blog_section_box">
+        @unless (count($blogs) == 0)
+
+            @foreach ($blogs as $blog)
+                <x-blog-card :blog="$blog" />
+            @endforeach
+        @else
+            <p class="text-white">No blogs found</p>
+        @endunless
+
+    </div>
+</div>
+</x-slot> --}}
+    </div>
     @include('partials.footer')
 </x-layout>

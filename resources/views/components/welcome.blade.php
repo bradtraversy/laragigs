@@ -1,5 +1,5 @@
 <div class="p-6 lg:p-8 bg-white border-b border-gray-200">
-    <x-application-logo class="block h-12 w-auto" />
+    {{-- <x-application-logo class="block h-12 w-auto" /> --}}
 
     <h1 class="mt-8 text-2xl font-medium text-gray-900">
         Welcome to Sharnoor Travel Agency!
@@ -23,7 +23,7 @@
             </svg>
             <h2 class="ml-3 text-xl font-semibold text-gray-900">
                 {{-- <a href="https://laravel.com/docs">Documentation</a> --}}
-    <a href="admin/listings/create" class="no-underline text-2xl">Post Job</a>
+    <a href="/admin/listings/create" class="no-underline text-2xl">Post Job</a>
 
             </h2>
         </div>
@@ -31,7 +31,7 @@
         <p class="mt-4 text-gray-500 text-sm leading-relaxed">
             Here you can create, edit, delete and manage Gigs
         </p>
-
+        <x-button type="submit" class="mt-5 mx-8">Create Job</x-button>
         {{-- <p class="mt-4 text-sm">
             <a href="https://laravel.com/docs" class="inline-flex items-center font-semibold text-indigo-700">
                 Explore the documentation
@@ -49,12 +49,12 @@
                 <path stroke-linecap="round" d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z" />
             </svg>
             <h2 class="ml-3 text-xl font-semibold text-gray-900">
-                <a href="/Blog/create" class="no-underline text-2xl">Create Blog</a>
+                <a href="/admin/Blog/create" class="no-underline text-2xl">Create Blog</a>
             </h2>
         </div>
 
         <p class="mt-4 text-gray-500 text-md leading-relaxed">
-           You can create blogs while 
+           You can create blogs while
             separating keywords with commas to enhace accessility of content by users.
         </p>
 
@@ -67,6 +67,7 @@
                 </svg>
             </a>
         </p> --}}
+        <x-button type="submit" class="mt-5 mx-6">Create Blog</x-button>
     </div>
 
     <div>
@@ -75,14 +76,16 @@
                 <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z" />
             </svg>
             <h2 class="ml-3 text-xl font-semibold text-gray-900">
-                <a href="/learn/create" class="no-underline text-2xl">E-portal</a>
+                <a href="/admin/learn/create" class="no-underline text-2xl">E-portal</a>
             </h2>
         </div>
 
         <p class="mt-4 text-gray-500 text-sm leading-relaxed">
-            Add courses, units, fee structures, contact details, mode of study and any other 
+            Add courses, units, fee structures, contact details, mode of study and any other
             relevant details to allow students apply and study.
+
         </p>
+        <x-button type="submit" class="mt-5 mx-8" >Create course </x-button>
     </div>
 
     <div>

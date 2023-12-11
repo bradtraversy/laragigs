@@ -22,9 +22,6 @@
     </div>
     <h6 class="desc">Dive into our engaging content categories.</h6>
     <div class="category_box_section">
-
-
-
         @unless (count($blogs) == 0)
 
             @foreach ($blogs as $blog)
@@ -38,8 +35,6 @@
         @else
             <p class="text-white">No blogs found</p>
         @endunless
-
-
 
     </div>
 </div>
@@ -65,11 +60,10 @@
                     <img src="./images/a12.jpg" alt="Destinations" class="destination_img">
                     <div class="destination_category">{{ $blog->category }}</div>
                     <div class="destination_detail">
-                        <h6 class="destination_title">{{ $blog->title }}</h6>
                         <h6 class="destination_duration">12 days | 11 June 2024</h6>
+                        <h6 class="destination_title">{{ $blog->title }}</h6>
                         <div class="destination_popular_places">
-
-                            <div class="tag">{{ $blog->tag }}</div>
+                            <x-blog-tags :tagsCsv="$blog->tags" />
 
                         </div>
                     </div>
@@ -101,18 +95,15 @@
         @else
             <p class="text-white">No blogs found</p>
         @endunless
-    
+
     </div>
 </div>
 <!-- join community -->
 <div class="join_section">
-    <h6 class="join_title text-5xl">
+    <h6 class="join_title text-3xl">
         Join Our Travel Community <br> to Explore with us.
     </h6>
-    <button class="btn bg_btn journey_btn">Join Now <i class="fa-solid fa-arrow-right"></i></button>
+    <x-button type="submit">Join</x-button>
 </div>
 
-<a href="/Blog/create" class="absolute top-1/3 right-10 bg-black text-white py-2 px-5">Create Blog</a>
-<!-- latest blog section -->
 
-{{-- @include('partials.footer') --}}

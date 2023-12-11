@@ -1,8 +1,9 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Http\Controllers\Controller;
+
 use App\Models\Admin;
+// use App\Models\Admin;
 use Illuminate\Http\Request;
 use Laravel\Fortify\Fortify;
 use Laravel\Fortify\Features;
@@ -10,11 +11,13 @@ use Illuminate\Validation\Rule;
 use Illuminate\Routing\Pipeline;
 // use Laravel\Fortify\Contracts\LoginResponse;
 // use Illuminate\Routing\Controller;
+use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Responses\LoginResponse;
 use App\Actions\Fortify\CreateNewUser;
 use Illuminate\Support\Facades\Validator;
+// use App\Guards\StatefulGuard;
 use Illuminate\Contracts\Auth\StatefulGuard;
 use App\Actions\Fortify\AttemptToAuthenticate;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -31,7 +34,7 @@ class AdminController extends Controller
 {
      use RegistersUsers;
 
-     protected $redirectTo = '/admin/dashboard';
+
     /**
      * The guard implementation.
      *
@@ -47,19 +50,22 @@ class AdminController extends Controller
      */
     public function __construct(StatefulGuard $guard)
     {
-        $this->middleware('guest:admin');
+        // $this->middleware('guest:admin');
+        $this->guard = $guard;
 
     }
 
-    public function showRegistrationForm()
-    {
-        return view('auth.register', ['guard' => 'admin']);
-    }
 
-    // public function registerView()
+
+    // public function showRegistrationForm()
     // {
     //     return view('auth.register', ['guard' => 'admin']);
     // }
+
+    public function registerView()
+    {
+        return view('auth.register', ['guard' => 'admin']);
+    }
 
     protected function validator(array $data)
     {
@@ -77,6 +83,8 @@ class AdminController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
+
+
     }
 
     public function loginForm()
@@ -94,7 +102,7 @@ class AdminController extends Controller
 
 
 
-
+     protected $redirectTo = 'admin/dashboard';
 
     /**
      * Attempt to authenticate a new session.
@@ -169,5 +177,9 @@ class AdminController extends Controller
         return redirect('/login')->with('message', 'You have been logged out!');
 
     }
+
+    // CRUD Routes
+
+
 
 }

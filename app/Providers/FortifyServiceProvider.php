@@ -2,7 +2,7 @@
 
 namespace App\Providers;
 
-use App\models\Admin;
+use App\Http\Controllers\AdminController;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use Laravel\Fortify\Fortify;
@@ -11,7 +11,6 @@ use Illuminate\Support\Facades\Route;
 use App\Actions\Fortify\CreateNewUser;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Cache\RateLimiting\Limit;
-use App\Http\Controllers\AdminController;
 use App\Actions\Fortify\ResetUserPassword;
 use App\Actions\Fortify\UpdateUserPassword;
 use Illuminate\Support\Facades\RateLimiter;
@@ -67,7 +66,7 @@ class FortifyServiceProvider extends ServiceProvider
         //  Fortify::store(function (string $callback) {
         //      app()->singleton(CreatesNewUsers::class, $callback);
         //     });
-        
+
         Fortify::createUsersUsing(CreateNewUser::class);
         RateLimiter::for('two-factor', function (Request $request) {
             return Limit::perMinute(5)->by($request->session()->get('login.id'));
@@ -98,7 +97,7 @@ class FortifyServiceProvider extends ServiceProvider
     {
         if (Fortify::$registersRoutes) {
             Route::group([
-                'namespace' => 'Laravel\Fortify\Http\Controllers',
+                'namespace' => 'App\Http\Controllers',
                 'domain' => config('fortify.domain', null),
                 'prefix' => config('fortify.prefix'),
             ], function () {

@@ -41,9 +41,7 @@
             </div>
 
             <div class="mb-6 text-white">
-                <button class="bg-laravel text-white rounded py-2 px-4 hover:bg-black text-lg text-center">
-                  Send
-                </button>
+                <x-button type="submit">SEND</x-button>
               </div>
       </x-card>
 

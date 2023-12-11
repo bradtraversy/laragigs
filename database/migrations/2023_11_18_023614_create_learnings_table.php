@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('learnings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('School');
+            $table->unsignedBigInteger('admin_id');
+            $table->foreign('admin_id')->references('id')->on('admins')->onDelete('cascade');
             $table->string('mode');
             $table->string('course');
             $table->longText('units');

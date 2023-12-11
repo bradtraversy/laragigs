@@ -4,9 +4,9 @@
             <x-authentication-card-logo />
         </x-slot>
 
-        <x-validation-errors class="mb-4" />
+        {{-- <x-validation-errors class="mb-4" /> --}}
 
-        <form method="POST" action="{{ route('admin.register') }}">
+        <form method="POST" action="{{ isset($guard) ? url($guard.'/register')  : route('admin.register') }}">
             @csrf
 
             <div>

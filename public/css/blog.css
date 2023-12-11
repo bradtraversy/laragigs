@@ -5,7 +5,7 @@
 *, *::after, *::before {
 margin: 0;
 padding: 0;
-box-sizing: content-box;
+box-sizing: border-box;
 text-transform:inherit;
 font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 list-style-type: none;
@@ -886,11 +886,11 @@ color: var(--color-light);
 width: 100%;
 height: auto;
 padding: 60px 60px;
-flex-direction: row
+flex-direction: row;
 align-items: center;
 justify-content: center;
 row-gap: 1rem;
-
+/* position: absolute; */
 }
 .blog_section_box{
 width: 100%;
@@ -900,7 +900,7 @@ align-items: center;
 justify-content: center;
 flex-wrap: wrap;
 gap: 2.5rem;
-flex-direction: row;
+
 }
 
 .blog_box{

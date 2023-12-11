@@ -1,4 +1,4 @@
-<x-layout>
+<x-guest-layout>
   <x-card class="p-10 max-w-lg mx-auto mt-24 text-white-50">
     <header class="text-center">
       <h2 class="text-2xl font-bold uppercase mb-1">Create a Gig</h2>
@@ -83,7 +83,7 @@
         @enderror
       </div>
 
-    
+
 
       <div class="mb-6">
         <button class="bg-laravel text-white rounded py-2 px-4 hover:bg-black">
@@ -94,4 +94,4 @@
       </div>
     </form>
   </x-card>
-</x-layout>
+</x-guest-layout>

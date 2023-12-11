@@ -8,6 +8,7 @@ use App\Http\Controllers\MailController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ListingController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,4 +31,4 @@ use App\Http\Controllers\ListingController;
 // destroy - Delete listing
 
 //All Jobs
-Route::get('/jobs', [ListingController::class, 'jobs']);
+Route::get('/jobs', [DashboardController::class, 'jobs']);

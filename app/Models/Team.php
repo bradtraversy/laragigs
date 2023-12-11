@@ -3,7 +3,6 @@
 namespace App\Models;
 
 
-use App\Models\Admin;
 use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
 use Laravel\Jetstream\HasProfilePhoto;

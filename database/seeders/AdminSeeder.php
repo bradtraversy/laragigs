@@ -2,9 +2,14 @@
 
 namespace Database\Seeders;
 
-use Illuminate\Database\Console\Seeds\WithoutModelEvents;
-use Illuminate\Database\Seeder;
+use App\Models\Blog;
 use App\Models\Admin;
+use App\Models\Listing;
+use App\Models\Learning;
+use Laravel\Jetstream\Team;
+use Illuminate\Database\Seeder;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
 class AdminSeeder extends Seeder
 {
     /**
@@ -14,7 +19,25 @@ class AdminSeeder extends Seeder
      */
     public function run()
     {
-        Admin::factory()->create();
+        $admin = Admin::factory(4)->create();
+
+        Listing::factory(6)->create([
+            'admin_id' => $admin->id
+        ]);
+
+        Blog::factory(6)->create([
+            'admin_id' => $admin->id
+        ]);
+
+        Learning::factory(6)->create([
+            'admin_id' => $admin->id
+        ]);
+
+        $admin->ownedTeams()->save(Team::forceCreate([
+            'admin_id' => $admin->id,
+            'name' => explode('Dante', $admin->name, 2)[0] . "'s Team",
+            'personal_team' => true,
+        ]));
     }
 }
 

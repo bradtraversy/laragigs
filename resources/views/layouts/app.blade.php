@@ -13,14 +13,11 @@
         <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
         <link rel="stylesheet" type="text/css" href="{{ asset('app.css') }}"/>
         <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}"/>
-        <link rel="stylesheet" type="text/css"  href="{{ asset('bootstrap5/css/bootstrap.min.css') }}"/>
-        <link rel="stylesheet" type="text/css" href="{{ asset('fontawesome6/css/all.min.css') }}"/>
         {{-- <script type="text/javascript" language="javascript"
     src="{{ asset('fontawesome6/js/all.min.js') }}"></script>
     <script type="text/javascript" language="javascript"
     src="{{ asset('bootstrap5/js/bootstrap.min.js') }}"></script> --}}
     <script src="{{ asset('js/app.js') }}"></script>
-    <link rel="sylesheet" href="{{ asset('css/tailwind.css') }}" />
         <!-- Scripts -->
         {{-- @vite(['resources/css/app.css', 'resources/js/app.js']) --}}
         <script>
@@ -40,9 +37,12 @@
     <body class="font-sans antialiased">
         <x-banner />
 
-        <div class="min-h-screen bg-gray-100">
-            @livewire('navigation-menu')
+        @livewire('user-nav')
 
+        <div class="min-h-screen bg-gray-100">
+            
+            {{-- @livewire('navigation-menu') --}}
+        
             <!-- Page Heading -->
             @if (isset($header))
                 <header class="bg-white shadow">
@@ -53,9 +53,9 @@
             @endif
 
             <!-- Page Content -->
-            {{-- <main>
+            <main>
                 {{ $slot }}
-            </main> --}}
+            </main>
         </div>
 
         @stack('modals')

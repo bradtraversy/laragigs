@@ -31,10 +31,14 @@ class AdminFactory extends Factory
     public function definition()
     {
         return [
-            'name' => $this->faker->name(),
-            'email' => $this->faker->unique()->safeEmail(),
+            // 'name' => $this->faker->name(),
+            'name' => 'Admin 1011',
+            // 'email' => $this->faker->unique()->safeEmail(),
+            'email' => 'admin@example.com',
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
+            'two_factor_secret' => null,
+            'two_factor_recovery_codes' => null,
             'remember_token' => Str::random(10),
             'profile_photo_path' => null,
             'current_team_id' => null,
@@ -74,8 +78,8 @@ class AdminFactory extends Factory
 
         return $this->has(
             Team::factory()
-                ->state(function (array $attributes, Admin $user) {
-                    return ['name' => $user->name . '\'s Team', 'user_id' => $user->id, 'personal_team' => true];
+                ->state(function (array $attributes, Admin $admin) {
+                    return ['name' => $admin->name . '\'s Team', 'admin_id' => $admin->id, 'personal_team' => true];
                 }),
             'ownedTeams'
         );

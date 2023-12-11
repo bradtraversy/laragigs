@@ -6,8 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" href="" />
-    <link rel="sylesheet" href="{{ asset('css/tailwind.css') }}" />
-    <link rel="stylesheet" type="text/css" href="{{ asset('app.css') }}" />
+    <link rel="preconnect" href="https://fonts.bunny.net">
+    <link href="https://fonts.bunny.net/css?family=figtree:400,500,600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('css/blog.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('css/learning.css') }}" />
     <link rel="stylesheet" type="text/css" href="{{ asset('bootstrap5/css/bootstrap.min.css') }}" />
@@ -38,11 +39,12 @@
             },
         }
     </script>
+       @livewireStyles
     <title>Sharnoor Travel Agency | Find Jobs & Projects</title>
 </head>
 
 <body class="mb-48" id="body">
-    <nav class="2xl:container 2xl:grid-cols-2 d-xl-flex fixed-top">
+    <nav class="2xl:container xl:grid-cols-2 d-xl-flex fixed-top">
         {{-- <a href="/"><img class="w-14" src="{{asset('images/logo.png')}}" alt="" class="logo" /></a> --}}
 
         <div class="welcome mr-3">
@@ -51,7 +53,6 @@
                     <a href="/"> Sharnoor Travel Agency </a>
                 </div>
 
-                <i class="fa fa-bars-staggered px-2 fs-3" id="show"></i>
             </ul>
         </div>
 
@@ -87,9 +88,11 @@
 
         </div>
 
-        <div class="top-1 text-white-50 flex flex-row mr-3 max-w-lg">
+        <div class="top-1 text-white-50 flex flex-row mr-2 max-w-lg">
             @auth
-                <li>
+
+            @livewire('navigation-menu')
+                {{-- <li>
                     <span class="font-bold Uppercase text-lg">
                         Welcome {{ auth()->user()->name }}
                     </span>
@@ -102,7 +105,7 @@
                             <i class="fa-solid fa-door-closed text-decoration-none"></i> Logout
                         </button>
                     </form>
-                </li>
+                </li> --}}
             @else
                 <li>
                     <a href="/register" class="hover:text-laravel  text-white px-3"><i class="fa-solid fa-user-plus"></i>
@@ -118,16 +121,15 @@
     <div class="pt-24">
         <main>
 
-            @include('partials._chat')
+            {{-- @include('partials._chat') --}}
 
         </main>
     </div>
 
     <footer
-        class="fixed bottom-0 left-0 w-full flex items-center justify-start font-bold bg-laravel text-white h-24 mt-24 opacity-90 md:justify-center">
-        <p class="ml-2">Copyright &copy; 2022, All Rights reserved</p>
+        class="fixed bottom-0 left-0 w-full flex items-center justify-start font-bold bg-laravel text-white h-20 mt-24 opacity-90 md:justify-center">
+        <p class="ml-2">Copyright &copy; #Dante Mwangi 2023, All Rights reserved</p>
 
-        <a href="/listings/create" class="absolute top-1/3 right-10 bg-black text-white py-2 px-5">Post Job</a>
     </footer>
 
     <x-flash-message />

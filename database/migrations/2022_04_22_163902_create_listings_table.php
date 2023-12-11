@@ -15,8 +15,9 @@ return new class extends Migration
     {
         Schema::create('listings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('title');
+            $table->unsignedBigInteger('admin_id');
+            $table->foreign('admin_id')->references('id')->on('admins')->onDelete('cascade');
             $table->string('logo')->nullable();
             $table->string('tags');
             $table->string('company');
@@ -25,6 +26,8 @@ return new class extends Migration
             $table->string('website');
             $table->longText('description');
             $table->timestamps();
+
+            $table->engine = 'InnoDB';
         });
     }
 

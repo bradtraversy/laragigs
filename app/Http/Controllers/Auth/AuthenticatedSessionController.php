@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Fortify\Http\Controllers;
+namespace App\Http\Controllers\Auth;
 
 use Illuminate\Contracts\Auth\StatefulGuard;
 use Illuminate\Http\Request;

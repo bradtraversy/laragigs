@@ -1,6 +1,6 @@
 <?php
 
-namespace Laravel\Fortify\Http\Controllers;
+namespace App\Http\Controllers\Auth;
 
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;

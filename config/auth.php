@@ -18,11 +18,11 @@ return [
 
         'passwords' => 'users',
     ],
-    // [
-    //     'guard' => 'admin',
+    [
+        'guard' => 'admin',
 
-    //     'passwords' => 'admins',
-    // ],
+        'passwords' => 'admins',
+    ],
     /*
     |--------------------------------------------------------------------------
     | Authentication Guards

@@ -15,14 +15,17 @@ return new class extends Migration
     {
         Schema::create('blogs', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('category');
+            $table->unsignedBigInteger('admin_id');
+            $table->foreign('admin_id')->references('id')->on('admins')->onDelete('cascade');
             $table->string('image')->nullable();
             $table->string('title');
              $table->string('email');
             $table->string('tags');
             $table->longText('description');
             $table->timestamps();
+
+            $table->engine = 'InnoDB';
         });
     }
 

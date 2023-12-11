@@ -1,13 +1,16 @@
 <?php
 
+use App\Mail\TestEmail;
 use App\Models\Listing;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\ListingController;
+use App\Http\Controllers\JobController;
+use App\Http\Controllers\Admin\ListingController;
 use App\Http\Controllers\LearningController;
 
 /*
@@ -31,28 +34,15 @@ use App\Http\Controllers\LearningController;
 // destroy - Delete listing
 
 // All Listings
-Route::get('/', [ListingController::class, 'index']);
+Route::get('/', [JobController::class, 'index']);
 
-// // Show Create Form
-Route::get('admin/listings/create', [ListingController::class, 'create'])->middleware('admin', 'verified');
 
-// Store Listing Data
-Route::post('/listings', [ListingController::class, 'store'])->middleware('admin', 'verified');
 
-// Show Edit Form
-Route::get('/listings/{listing}/edit', [ListingController::class, 'edit'])->middleware('admin', 'verified');
+// // Single Listing
+Route::get('/listings/{listing}', [JobController::class, 'show']);
 
-// Update Listing
-Route::put('/listings/{listing}', [ListingController::class, 'update'])->middleware('admin', 'verified');
+require_once __DIR__ . '/admin.php';
 
-// Delete Listing
-Route::delete('/listings/{listing}', [ListingController::class, 'destroy'])->middleware('admin', 'verified');
-
-// Manage Listings
-Route::get('/listings/manage', [ListingController::class, 'manage'])->middleware('admin', 'verified');
-
-// Single Listing
-Route::get('/listings/{listing}', [ListingController::class, 'show']);
 
 // Show Register/Create Form
 Route::get('/register', [UserController::class, 'create'])->middleware('guest');
@@ -71,4 +61,46 @@ Route::get('/login', [UserController::class, 'login'])
 // Log In User
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 
+
+Route::get('/send-test-email', function () {
+    Mail::to('damalide20@gmail.com')->send(new TestEmail());
+    return "Test email sent!";
+});
+
 require_once __DIR__ . '/jetstream.php';
+
+Route::middleware(['admin'])->group(function () {
+    require __DIR__ . '/admin.php';
+
+
+
+
+
+
+    // // Store Listing Data
+    // Route::post('/listings', [ListingController::class, 'store'])
+    //     ->name('listings')
+    //     ->middleware('admin');
+
+    // // Show Edit Form
+    // Route::get('/listings/{listing}/edit', [ListingController::class, 'edit'])
+    //     ->name('listings')
+    //     ->middleware('admin');
+
+    // // Update Listing
+    // Route::put('/listings/{listing}', [ListingController::class, 'update'])
+    //     ->name('listings')
+    //     ->middleware('admin');
+
+    // // Delete Listing
+    // Route::delete('/listings/{listing}', [ListingController::class, 'destroy'])
+    //     ->name('listings')
+    //     ->middleware('admin');
+
+    // // Manage Listings
+    // Route::get('/listings/manage', [ListingController::class, 'manage'])
+    //     ->name('listings')
+    //     ->middleware('admin');
+
+
+});

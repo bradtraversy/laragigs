@@ -1,5 +1,5 @@
-<x-dashboard>
-{{-- @extends('components.dashboard') --}}
+{{-- <x-dashboard> --}}
+@extends('components.dashboard')
 
 
 
@@ -12,7 +12,7 @@
         </div>
 
         <div class="image">
-            <img src="{{ asset('images/6.jpg') }}" alt="">
+            <img src="{{ asset('images/6.jpg') }}" alt="Learn online with online tools.">
         </div>
     </div>
 </section>
@@ -52,7 +52,7 @@
           </div>
     </div>
 </section>
-@endslot
+
 <!--about section start-->
 <section class="about" id="about">
     <div class="row">
@@ -362,4 +362,4 @@
 </footer>
 
 
-</x-dashboard>
+{{-- </x-dashboard> --}}
