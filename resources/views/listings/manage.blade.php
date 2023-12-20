@@ -3,7 +3,7 @@
   <x-card class="p-10 text-white-50">
     <header>
       <h1 class="text-3xl text-center font-bold my-6 uppercase">
-        Manage
+        Manage Gigs
       </h1>
     </header>
 

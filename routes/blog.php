@@ -3,31 +3,35 @@
 use \App\Models\Blog;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BlogController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Admin\BlogController;
 
 // // All blogs
 Route::get('/main', [DashboardController::class, 'main']);
 
-// // // Show Create Form
-// Route::get('/Blog/create', [BlogController::class, 'create'])->middleware('admin');
-
-// // // Store blog Data
-// Route::post(' /blogs', [BlogController::class, 'store'])->middleware('auth');
-
-// // // Show Edit Form
-// Route::get('/Blog/{blog}/edit', [BlogController::class, 'edit'])->middleware('auth');
-
-// // // Update blog
-// Route::put('/Blog/{blog}', [BlogController::class, 'update'])->middleware('auth');
-
-// // // Delete blog
-// Route::delete('/Blog/{blog}', [BlogController::class, 'destroy'])->middleware('auth');
-
 // Single blog
-Route::post('/Blog/{blog}', [DashboardController::class, 'show']);
+Route::post('/admin/Blog/{blog}', [DashboardController::class, 'show']);
+
+Route::middleware(['auth:sanctum,admin', config('jetstream.auth_session', 'verified')])->group(function () {
+
+// // Show Create Form
+Route::get('/admin/Blog/create', [BlogController::class, 'create'])->middleware('auth:admin');
+
+// // Store blog Data
+Route::post('/admin/blogs', [BlogController::class, 'store'])->middleware('auth:admin');
+
+// // Show Edit Form
+Route::get('/admin/Blog/{blog}/edit', [BlogController::class, 'edit'])->middleware('auth:admin');
+
+// // Update blog
+Route::put('/admin/Blog/{blog}', [BlogController::class, 'update'])->middleware('auth:admin');
+
+// // Delete blog
+Route::delete('/admin/Blog/{blog}', [BlogController::class, 'destroy'])->middleware('auth:admin');
+
 
 // // // Manage blog
-// Route::get('/Blog/manage', [BlogController::class, 'manage'])->middleware('auth');
+Route::get('/admin/Blog/manage', [BlogController::class, 'manage'])->middleware('auth:admin');
 
-
+require_once __DIR__ . '/admin.php';
+});

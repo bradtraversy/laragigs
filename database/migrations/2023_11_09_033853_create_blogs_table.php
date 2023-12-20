@@ -17,14 +17,14 @@ return new class extends Migration
             $table->id();
             $table->string('category');
             $table->unsignedBigInteger('admin_id');
-            $table->foreign('admin_id')->references('id')->on('admins')->onDelete('cascade');
             $table->string('image')->nullable();
             $table->string('title');
-             $table->string('email');
+            $table->string('email');
             $table->string('tags');
             $table->longText('description');
             $table->timestamps();
 
+            $table->foreign('admin_id')->references('id')->on('admins')->onDelete('cascade');
             $table->engine = 'InnoDB';
         });
     }

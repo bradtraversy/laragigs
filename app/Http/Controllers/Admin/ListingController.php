@@ -12,11 +12,12 @@ use Illuminate\Support\Facades\Storage;
 class ListingController extends Controller
 {
 
+
     public function __construct()
     {
         $this->middleware('admin');
+        // $this->guard = $guard;
     }
-
 
     // Show Create Form
     public function create()
@@ -44,14 +45,9 @@ class ListingController extends Controller
 
         Listing::create($formFields);
 
-        return redirect('/')->with('message', 'Listing created successfully!');
+        return redirect('/admin/dashboard')->with('message', 'Listing created successfully!');
     }
 
-    // Show Edit Form
-    public function edit(Listing $listing)
-    {
-        return view('listings.edit', ['listing' => $listing]);
-    }
 
     // Update Listing Data
     public function update(Request $request, Listing $listing)
@@ -92,12 +88,25 @@ class ListingController extends Controller
             Storage::disk('public')->delete($listing->logo);
         }
         $listing->delete();
-        return redirect('/')->with('message', 'Listing deleted successfully');
+        return redirect('/admin/dasboard')->with('message', 'Listing deleted successfully');
     }
 
+    // Show Edit Form
+    public function edit(Listing $listing)
+    {
+        return view('listings.edit', ['listing' => $listing]);
+    }
+
+    //Show single listing
+    public function show(Listing $listing)
+    {
+        return view('listings.show', [
+            'listing' => $listing
+        ]);
+    }
     // Manage Listings
     public function manage()
     {
-        return view('listings.manage', ['listings' => auth()->user()->listings()->get()]);
+        return view('listings.manage', ['listings' => auth()->admin()->listings()->get()]);
     }
 }

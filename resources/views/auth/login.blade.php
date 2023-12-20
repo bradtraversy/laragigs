@@ -4,7 +4,7 @@
             <x-authentication-card-logo />
         </x-slot>
 
-        {{-- <x-validation-errors class="mb-4" /> --}}
+        <x-validation-errors class="mb-4" />
 
         @if (session('status'))
             <div class="mb-4 font-medium text-sm text-green-600">
@@ -12,7 +12,7 @@
             </div>
         @endif
 
-        <form method="POST" action="{{ isset($guard) ? url($guard.'/login')  : route('login') }}">
+        <form method="POST" action="{{ isset($guard) ? url($guard.'/login')  : route('admin.login') }}">
             @csrf
 
             <div>

@@ -2,7 +2,7 @@
     <!-- Primary Navigation Menu -->
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between h-16">
-            <div class="flex">
+            {{-- <div class="flex">
                 <!-- Logo -->
 
 
@@ -12,20 +12,20 @@
                         {{ __('Dashboard') }}
                     </x-nav-link>
                 </div>
-            </div>
+            </div> --}}
             @auth
                 <div class="hidden sm:flex sm:items-center sm:ml-6">
                     <!-- Teams Dropdown -->
-                    @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
-                        <div class="ml-3 relative">
+                    @if (!Laravel\Jetstream\Jetstream::hasTeamFeatures())
+                        <div class="ml-2 relative">
                             <x-dropdown align="right" width="60">
                                 <x-slot name="trigger">
                                     <span class="inline-flex rounded-md">
                                         <button type="button"
-                                            class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
+                                            class="inline-flex px-4 py-1 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
                                             {{ Auth::user()->currentTeam->name }}
 
-                                            <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg"
+                                            <svg class="ml-2 -mr-0.5 h-2 w-4" xmlns="http://www.w3.org/2000/svg"
                                                 fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                                 <path stroke-linecap="round" stroke-linejoin="round"
                                                     d="M8.25 15L12 18.75 15.75 15m-7.5-6L12 5.25 15.75 9" />
@@ -45,7 +45,7 @@
                                         <x-dropdown-link href="{{ route('teams.show', Auth::user()->currentTeam->id) }}">
                                             {{ __('Team Settings') }}
                                         </x-dropdown-link>
-                                    @else
+
                                         @can('create', Laravel\Jetstream\Jetstream::newTeamModel())
                                             <x-dropdown-link href="{{ route('teams.create') }}">
                                                 {{ __('Create New Team') }}
@@ -73,15 +73,17 @@
                     <!-- Settings Dropdown -->
                     <div class="ml-3 relative">
                         <x-dropdown align="right" width="48">
+
                             <x-slot name="trigger">
                                 @if (Laravel\Jetstream\Jetstream::managesProfilePhotos())
+                                <div class="flex">
                                     <button
                                         class="flex text-sm border-2 border-transparent rounded-full focus:outline-none focus:border-gray-300 transition">
-                                        <img class="h-8 w-8 rounded-full object-cover"
-                                            src="{{ auth()->user()->profile_photo_url }}" alt="" />
+                                        <img class="h-10 w-10 rounded-full object-cover"
+                                            src="{{ auth()->user()->profile_photo_url }}" alt="Profile Photo" />
                                     </button>
-                                @else
-                                    <span class="inline-flex rounded-md">
+
+                                    <span class="flex rounded-md">
                                         <button type="button"
                                             class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none focus:bg-gray-50 active:bg-gray-50 transition ease-in-out duration-150">
                                             {{ auth()->user()->name }}
@@ -93,7 +95,9 @@
                                             </svg>
                                         </button>
                                     </span>
+                                </div>
                                 @endif
+
                             </x-slot>
 
                             <x-slot name="content">
@@ -115,16 +119,17 @@
                                 <div class="border-t border-gray-200"></div>
 
                                 <!-- Authentication -->
-                                <form class="inline" method="POST" action="/logout">
-                                    @csrf
+
 
                                     <x-dropdown-link>
+                                        <form class="inline" method="POST" action="/logout" >
+                                            @csrf
+                                            <button type="submit">
+                                              Logout
+                                            </button>
+                                          </form>
 
-                                        <i class="fa-solid fa-door-closed text-decoration-none"></i> Logout
-                                        {{-- @click.prevent="$root.submit();">
-                                    {{ __('Log Out') }} --}}
                                     </x-dropdown-link>
-                                </form>
                             </x-slot>
                         </x-dropdown>
                     </div>
@@ -186,16 +191,16 @@
                     <form class="inline" method="POST" action="/logout">
                         @csrf
 
-                        <x-dropdown-link>
+                        <x-dropdown-link
+                        @click.prevent="$root.submit();">
+                        {{ __('Log Out') }}
+                    </x-dropdown-link>
+                            {{-- <i class="fa-solid fa-door-closed text-decoration-none" href="/logout"></i> Logout --}}
 
-                            <i class="fa-solid fa-door-closed text-decoration-none" href="/logout"></i> Logout
-                            {{-- @click.prevent="$root.submit();">
-                        {{ __('Log Out') }} --}}
-                        </x-dropdown-link>
                     </form>
 
                     <!-- Team Management -->
-                    @if (Laravel\Jetstream\Jetstream::hasTeamFeatures())
+                    @if (!Laravel\Jetstream\Jetstream::hasTeamFeatures())
                         <div class="border-t border-gray-200"></div>
 
                         <div class="block px-4 py-2 text-xs text-gray-400">
@@ -220,10 +225,13 @@
                         <div class="block px-4 py-2 text-xs text-gray-400">
                             {{ __('Switch Teams') }}
                         </div>
+                        {{-- @unless (count($teams) === 0) --}}
 
                         @foreach (Auth::user()->allTeams() as $team)
                             <x-switchable-team :team="$team" component="responsive-nav-link" />
                         @endforeach
+
+                        {{-- @endunless --}}
                     @endif
                 </div>
             </div>

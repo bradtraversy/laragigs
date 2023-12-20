@@ -36,33 +36,38 @@ use App\Http\Controllers\Auth\AuthenticatedSessionController;
 // destroy - Delete listing
 
 // Admin routes
-Route::middleware(['admin'])->group(function () {
+Route::middleware(['admin:admin'])->group(function () {
     Route::get('admin/login', [AdminController::class, 'LoginForm']);
-    Route::post('/admin/login', [AdminController::class, 'store'])->name('admin.login');
+    Route::post('admin/login', [AdminController::class, 'store'])->name('admin.login');
     Route::get('/admin/register', [AdminController::class, 'registerView']);
     // Route::get('/admin/register', [AdminController::class, 'showRegistrationForm']);
-    Route::post('/admin/register', [AdminController::class, 'register']);
+    Route::post('/admin/register', [AdminController::class, 'register'])->name('admin.register');
 
     // Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'admin'], function () {
 
-    require __DIR__ . '/api.php';
-    Route::post(RoutePath::for('login', '/login'), [AuthenticatedSessionController::class, 'store'])->middleware(array_filter(['admin' . config('admin')]));
-    Route::get('admin/dashboard', [HomeController::class, 'index'])
-        ->name('dashboard')
-        ->middleware('admin');
-
-    Route::resource('/admin/listings', ListingController::class);
-    Route::resource('/admin/blogs', BlogController::class);
-    Route::resource('/admin/Learn', LearningController::class);
-
-    // // Show Create Form
-    // Route::get('admin/listings/create', [ListingController::class, 'create'])
-    //     ->name('listings')
-
-    //     ->middleware('admin');
-
-    Route::post('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
-
-    require_once __DIR__ . '/jetstream.php';
+    // require __DIR__ . '/api.php';
+    Route::post(RoutePath::for('login', '/admin/login'), [AuthenticatedSessionController::class, 'store'])->middleware(array_filter(['admin' . config('admin')]));
 });
+
+Route::middleware(['auth:sanctum,admin', config('jetstream.auth_session', 'verified')])->group(function () {
+    require_once __DIR__ . '/jetstream.php';
+
+    // Route::get('/admin/dashboard', [HomeController::class, 'index'])
+//     ->name('dashboard')->middleware('auth:admin');
+    Route::get('/admin/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
+    Route::post('admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
+    Route::resource('/admin/listings', ListingController::class)->middleware('auth:admin');
+   // Manage Listings
+Route::get('/admin/listings/manage', [ListingController::class, 'manage'])
+    ->name('listings')
+    ->middleware('admin');
+
+    Route::resource('/admin/Blog', BlogController::class)->middleware('auth:admin');
+
+
+    //
 // });
+});

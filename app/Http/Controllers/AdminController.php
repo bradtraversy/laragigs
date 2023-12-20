@@ -3,21 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\Models\Admin;
-// use App\Models\Admin;
 use Illuminate\Http\Request;
 use Laravel\Fortify\Fortify;
 use Laravel\Fortify\Features;
 use Illuminate\Validation\Rule;
-use Illuminate\Routing\Pipeline;
 // use Laravel\Fortify\Contracts\LoginResponse;
 // use Illuminate\Routing\Controller;
+use Illuminate\Routing\Pipeline;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use App\Http\Responses\LoginResponse;
-use App\Actions\Fortify\CreateNewUser;
 use Illuminate\Support\Facades\Validator;
-// use App\Guards\StatefulGuard;
 use Illuminate\Contracts\Auth\StatefulGuard;
 use App\Actions\Fortify\AttemptToAuthenticate;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -32,8 +29,7 @@ use Laravel\Jetstream\Http\Controllers\Livewire\TeamController;
 
 class AdminController extends Controller
 {
-     use RegistersUsers;
-
+    use RegistersUsers;
 
     /**
      * The guard implementation.
@@ -50,17 +46,19 @@ class AdminController extends Controller
      */
     public function __construct(StatefulGuard $guard)
     {
-        // $this->middleware('guest:admin');
         $this->guard = $guard;
-
+        // $this->middleware('admin');
     }
-
-
 
     // public function showRegistrationForm()
     // {
     //     return view('auth.register', ['guard' => 'admin']);
     // }
+    protected $redirectTo = '/dashboard';
+    public function loginForm()
+    {
+        return view('auth.login', ['guard' => 'admin']);
+    }
 
     public function registerView()
     {
@@ -83,15 +81,7 @@ class AdminController extends Controller
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
         ]);
-
-
     }
-
-    public function loginForm()
-    {
-        return view('auth.login', ['guard' => 'admin']);
-    }
-
 
     /**
      * Show the login view.
@@ -99,10 +89,6 @@ class AdminController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Laravel\Fortify\Contracts\LoginViewResponse
      */
-
-
-
-     protected $redirectTo = 'admin/dashboard';
 
     /**
      * Attempt to authenticate a new session.
@@ -126,28 +112,14 @@ class AdminController extends Controller
     protected function loginPipeline(LoginRequest $request)
     {
         if (Fortify::$authenticateThroughCallback) {
-            return (new Pipeline(app()))->send($request)->through(
-                array_filter(
-                    call_user_func(Fortify::$authenticateThroughCallback, $request)
-                )
-            );
+            return (new Pipeline(app()))->send($request)->through(array_filter(call_user_func(Fortify::$authenticateThroughCallback, $request)));
         }
 
         if (is_array(config('fortify.pipelines.login'))) {
-            return (new Pipeline(app()))->send($request)->through(
-                array_filter(
-                    config('fortify.pipelines.login')
-                )
-            );
+            return (new Pipeline(app()))->send($request)->through(array_filter(config('fortify.pipelines.login')));
         }
 
-        return (new Pipeline(app()))->send($request)->through(array_filter([
-            config('fortify.limiters.login') ? null : EnsureLoginIsNotThrottled::class,
-            config('fortify.lowercase_usernames') ? CanonicalizeUsername::class : null,
-            Features::enabled(Features::twoFactorAuthentication()) ? RedirectIfTwoFactorAuthenticatable::class : null,
-            AttemptToAuthenticate::class,
-            PrepareAuthenticatedSession::class,
-        ]));
+        return (new Pipeline(app()))->send($request)->through(array_filter([config('fortify.limiters.login') ? null : EnsureLoginIsNotThrottled::class, config('fortify.lowercase_usernames') ? CanonicalizeUsername::class : null, Features::enabled(Features::twoFactorAuthentication()) ? RedirectIfTwoFactorAuthenticatable::class : null, AttemptToAuthenticate::class, PrepareAuthenticatedSession::class]));
     }
 
     /**
@@ -169,17 +141,11 @@ class AdminController extends Controller
     }
     public function logout(Request $request)
     {
-        Auth::guard('admin')->logout();
+        Auth::guard('web')->logout();
 
         $request->session()->invalidate();
         $request->session()->regenerateToken();
 
         return redirect('/login')->with('message', 'You have been logged out!');
-
     }
-
-    // CRUD Routes
-
-
-
 }

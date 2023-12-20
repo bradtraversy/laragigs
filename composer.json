@@ -16,8 +16,8 @@
         "laravel/tinker": "^2.7",
         "laravel/ui": "^4.2",
         "livewire/livewire": "^2.11",
-        "symfony/http-client": "*",
-        "symfony/mailgun-mailer": "*",
+        "symfony/http-client": "^6.4",
+        "symfony/mailgun-mailer": "^6.4",
         "ycore/fortify-ui": "*"
     },
     "require-dev": {

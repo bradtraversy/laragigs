@@ -13,7 +13,6 @@ class StudentsController extends Controller
             'learns' => Learning::latest()->filter(request(['tag', 'search']))->paginate(6)
         ]);
 
-
     }
 
     //Show single listing

@@ -12,28 +12,28 @@
 
             <div  class="carousel-inner">
                 <div class="carousel-item active c-item">
-                    <img src="{{ asset('images/m3.jpg') }}" class="d-block w-100 img-fluid c-img" alt="slide 1">
-                    <div class="carousel-caption top-2 mt-4">
-                        <p class="mt-5 fs-3 text-uppercase">Work Abroad</p>
-                        <p class="display-5 fw-bolder text-capitalize" >Lorem, ipsum dolor.</p>
-                        <button class="btn btn-danger px-4 py-2 fs-5 mt-5" id="popup2" onclick = "openForm()">Apply Now</button>
+                    <img src="{{ asset('images/images (2).jfif') }}" class="d-block w-100 img-fluid c-img" alt="slide 1">
+                    <div class="carousel-caption bottom-1">
+                        <p class="mt-2 fs-3 text-uppercase">Search Gigs</p>
+                        <p class="display-5 fw-bolder text-capitalize">Find Work abroad</p>
+                        <button class="btn btn-danger text-xl" id="popup2" onclick = "openForm()">Apply</button>
                     </div>
                 </div>
                     <div class="carousel-item c-item">
-                        <img src="{{ asset('images/m1.jpg') }}" class="d-block w-100 img-fluid c-img" alt="slide 2">
-                        <div class="carousel-caption top-2 mt-4 py-6">
+                        <img src="{{ asset('images/travel abroad.jfif') }}" class="d-block w-100 img-fluid c-img" alt="slide 2">
+                        <div class="carousel-caption bottom-1">
                             <p class="mt-5 fs-3 text-uppercase">Get Services</p>
-                            <p class="display-5 fw-bolder text-capitalize">Lorem, ipsum dolor </p>
-                            <button class="btn btn-success px-4 py-2 fs-5 mt-5" id="popup1" onclick = "goForm()">Book Now</button>
+                            <p class="display-5 fw-bolder text-capitalize">Consult on all matters Travelling</p>
+                            <button class="btn btn-success text-xl" id="popup1" onclick = "goForm()">Book Now</button>
                         </div>
                     </div>
 
                     <div class="carousel-item c-item">
-                        <img src="{{ asset('images/m2.jpg') }}" class="d-block w-100 img-fluid c-img" alt="slide 3">
-                        <div class="carousel-caption top-2 mt-4 py-6">
+                        <img src="{{ asset('images/9.jpg') }}" class="d-block w-100 img-fluid c-img" alt="slide 3">
+                        <div class="carousel-caption bottom-1">
                             <p class="mt-5 fs-4 text-uppercase">Study Abroad</p>
-                            <p class="display-5 fw-bolder text-capitalize">Lorem, ipsum dolor. </p>
-                            <button class="btn btn-primary px-4 py-2 fs-5 mt-5"
+                            <p class="display-5 fw-bolder text-capitalize">Learn Quick Skills.</p>
+                            <button class="btn btn-primary text-xl"
                             onclick = "runForm()">Start Now</button>
                             </div>
                         </div>
@@ -54,9 +54,9 @@
            </div>
            </div>
            <section class="pop-up" id="pop-up">
-            <button class="btn btn-danger btn-lg  px-3" id="exit" onclick="closeForm()"><i class="fa fa-x"></i></button>
+            <x-button class="btn btn-danger btn-lg  px-3" id="exit" onclick="closeForm()"><i class="fa fa-x"></i></x-button>
 
-            <form action="/email-template" method="post" class="book form-horizontal" id="book" name="applyForm">
+            <form action="{{ route('emails.email-template.send') }}" method="post" class="book form-horizontal" id="book" name="applyForm">
                                     <h2>Apply Now</h2>
                                     @if (session()->has('message'))
                                         <div class="alert alert-success">
@@ -94,7 +94,7 @@
 
                                     <div class="form1">
                                     <label for="country">Select Country</label>
-                                    <select name="country" id="category" class="cat">
+                                    <select name="country" id="category" class="cat justify-center">
                                         <option value="" disabled>Countries</option>
                                         <option value="">Canada</option>
                                         <option value="">UK</option>
@@ -115,34 +115,40 @@
                     placeholder="How are you suitable for this role?" id="area" cols="30" rows="2"></textarea>
                                         </div>
 
-                                 <button class="btn btn-success btn-lg px-3"
-                                  type="submit" name="send" value="submit">Submit</button>
+                                 <x-button class="btn btn-success btn-lg px-3"
+                                  type="submit" name="send" value="submit">Submit</x-button>
 
                                 </form>
 
 
 
                         </section>
-            <section class="pop-up1 go1" id="go1">
-                <button class="btn btn-danger btn-lg  px-3" id="exit1" onclick="exitForm()"><i class="fa fa-x"></i></button>
+            <section class="pop-up go1" id="go1">
+                <button class="btn btn-danger btn-lg  px-3" id="exit" onclick="exitForm()"><i class="fa fa-x"></i></button>
 
-                <form action="/email-template" method="post" class="form-horizontal" id="book1" name="Form" role="form">
+                <form action="emails.email-template.send" method="POST" class="form-horizontal" id="book" name="Form" role="form">
+                    @csrf
+                    @if (session()->has('message'))
+                    <div class="alert alert-success">
+                    {{ session()->get('message') }}
+                </div>
+                @endif
                     <h2>Book a Service</h2>
                     <div class="form1">
                         <label for="name">Names</label>
-                        <input type="text" name="name" value="$name" placeholder="Full Names"
+                        <input type="text" name="name"  placeholder="Full Names"
                         class="px-4 py-2 shadow-xl rounded-xl placeholder-gray-50::placeholder">
                     </div>
 
                     <div class="form1">
                     <label for="email">Email</label>
-                    <input type="email" autocomplete="on" value="$email" placeholder="name@example.com" class="px-2 py-2 shadow-xl
+                    <input type="email" autocomplete="on" placeholder="name@example.com" class="px-2 py-2 shadow-xl
                     rounded-xl placeholder-gry-80::placeholder" required>
                 </div>
 
                     <div class="form1">
                     <label for="category">Select Service</label>
-                    <select name="" id="category">
+                    <select name="" id="category" class="justify-center">
                         <option value="">Passport</option>
                         <option value="">Visa</option>
                         <option value="">Exam Booking</option>
@@ -160,18 +166,22 @@
                 </div>
 
 
-                 <button class="btn btn-success btn-lg px-3"
-                  type="submit">Submit</button>
+                 <x-button class="btn btn-success btn-lg px-3"
+                  type="submit">Submit</x-button>
 
                 </form>
 
             </section>
 
-            <section class="pop-up2 go2" id="go2">
-                <button class="btn btn-danger btn-lg  px-3" id="exit2" onclick="noForm()"><i class="fa fa-x"></i></button>
-                <form action="/email-template" method="post" class="form-horizontal" id="book2" >
+            <section class="pop-up go2" id="go2">
+                <button class="btn btn-danger btn-lg  px-3" id="exit" onclick="noForm()"><i class="fa fa-x"></i></button>
+                <form action="emails.email-template.send" method="post" class="form-horizontal" id="book" >
                     @csrf
-
+                    @if (session()->has('message'))
+                    <div class="alert alert-success">
+                    {{ session()->get('message') }}
+                </div>
+                @endif
                     <h2>Enrol Here</h2>
 
                     <div class="form1">
@@ -206,8 +216,8 @@
                 </div>
 
 
-                 <button class="btn btn-success btn-lg px-3"
-                  type="submit">Submit</button>
+                 <x-button class="btn btn-success btn-lg px-3"
+                  type="submit">Submit</x-button>
 
                 </form>
             </section>

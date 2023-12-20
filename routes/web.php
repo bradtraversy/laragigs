@@ -2,16 +2,16 @@
 
 use App\Mail\TestEmail;
 use App\Models\Listing;
+use App\Mail\EmailMailable;
 use Illuminate\Http\Request;
+use Laravel\Jetstream\Jetstream;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\BlogController;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\AdminController;
 use App\Http\Controllers\JobController;
-use App\Http\Controllers\Admin\ListingController;
-use App\Http\Controllers\LearningController;
+use App\Http\Controllers\MailController;
+use App\Http\Controllers\UserController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -37,40 +37,42 @@ use App\Http\Controllers\LearningController;
 Route::get('/', [JobController::class, 'index']);
 
 
-
 // // Single Listing
 Route::get('/listings/{listing}', [JobController::class, 'show']);
 
-require_once __DIR__ . '/admin.php';
 
+// Route::middleware(['auth:sanctum', config('jetstream.auth_session'), 'verified'])->group(function () {
+    require_once __DIR__ . '/jetstream.php';
 
-// Show Register/Create Form
-Route::get('/register', [UserController::class, 'create'])->middleware('guest');
+    // Show Register/Create Form
+    Route::get('/register', [UserController::class, 'create'])->middleware('guest');
 
-// Create New User
-Route::post('/users', [UserController::class, 'store']);
+    // Create New User
+    Route::post('/users', [UserController::class, 'store']);
 
-// Log User Out
-Route::post('/logout', [UserController::class, 'logout']);
+    // Log User Out
+    Route::post('/logout', [UserController::class, 'logout']);
 
-// Show Login Form
-Route::get('/login', [UserController::class, 'login'])
-    ->name('login')
-    ->middleware('guest');
+    // Show Login Form
+    Route::get('/login', [UserController::class, 'login'])
+        ->name('login')
+        ->middleware('guest');
 
-// Log In User
-Route::post('/users/authenticate', [UserController::class, 'authenticate']);
+    // Log In User
+    Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 
+    // email send
+Route::get ('/', [MailController::class,'mail']);
 
-Route::get('/send-test-email', function () {
-    Mail::to('damalide20@gmail.com')->send(new TestEmail());
-    return "Test email sent!";
-});
+    
 
-require_once __DIR__ . '/jetstream.php';
+    // Route::get('/send-email-template', function () {
+//     Mail::to('damalide20@gmail.com')->queue(new TestEmail());
+//     return "Test Email sent!";
+// });
 
-Route::middleware(['admin'])->group(function () {
-    require __DIR__ . '/admin.php';
+    // });
+
 
 
 
@@ -78,29 +80,29 @@ Route::middleware(['admin'])->group(function () {
 
 
     // // Store Listing Data
-    // Route::post('/listings', [ListingController::class, 'store'])
-    //     ->name('listings')
-    //     ->middleware('admin');
+// Route::post('/listings', [ListingController::class, 'store'])
+//     ->name('listings')
+//     ->middleware('admin');
 
     // // Show Edit Form
-    // Route::get('/listings/{listing}/edit', [ListingController::class, 'edit'])
-    //     ->name('listings')
-    //     ->middleware('admin');
+// Route::get('/listings/{listing}/edit', [ListingController::class, 'edit'])
+//     ->name('listings')
+//     ->middleware('admin');
 
     // // Update Listing
-    // Route::put('/listings/{listing}', [ListingController::class, 'update'])
-    //     ->name('listings')
-    //     ->middleware('admin');
+// Route::put('/listings/{listing}', [ListingController::class, 'update'])
+//     ->name('listings')
+//     ->middleware('admin');
 
     // // Delete Listing
-    // Route::delete('/listings/{listing}', [ListingController::class, 'destroy'])
-    //     ->name('listings')
-    //     ->middleware('admin');
+// Route::delete('/listings/{listing}', [ListingController::class, 'destroy'])
+//     ->name('listings')
+//     ->middleware('admin');
 
     // // Manage Listings
-    // Route::get('/listings/manage', [ListingController::class, 'manage'])
-    //     ->name('listings')
-    //     ->middleware('admin');
+// Route::get('/listings/manage', [ListingController::class, 'manage'])
+//     ->name('listings')
+//     ->middleware('admin');
 
 
-});
+// });

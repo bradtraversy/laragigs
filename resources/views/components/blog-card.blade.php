@@ -11,9 +11,9 @@
                 </p>
                 <h6 class="blog_title">{{$blog->title}}</h6>
                 <div class="blog_desc text-xl text-white-50">{{$blog->description}}</div>
-               
-                <button class="read-btn"><a href="/blogs/{{$blog->id}}" class="no-underline text-white-50">Read More</a>
+
+                <x-button class="read-btn"><a href="/blogs/{{$blog->id}}" class="no-underline text-white-50">Read More</a>
                      <i class="fa-solid fa-arrow-right"></i>
-                </button>
+                </x-button>
             </div>
         </div>

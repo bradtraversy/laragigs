@@ -2,12 +2,8 @@
 
 namespace Database\Seeders;
 
-
-use App\Models\Blog;
 use App\Models\Team;
 use App\Models\User;
-use App\Models\Admin;
-use App\Models\Listing;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;

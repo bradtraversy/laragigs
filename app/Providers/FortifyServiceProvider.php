@@ -53,15 +53,15 @@ class FortifyServiceProvider extends ServiceProvider
             return Limit::perMinute(5)->by($throttleKey);
         });
 
-         RateLimiter::for('register', function (Request $request) {
+        RateLimiter::for('register', function (Request $request) {
             $throttleKey = Str::transliterate(Str::lower($request->input(Fortify::username())) . '|' . $request->ip());
 
             return Limit::perMinute(5)->by($throttleKey);
         });
 
-         Fortify::registerView(function () {
+        Fortify::registerView(function () {
             return view('auth.register');
-         });
+        });
 
         //  Fortify::store(function (string $callback) {
         //      app()->singleton(CreatesNewUsers::class, $callback);
@@ -101,7 +101,7 @@ class FortifyServiceProvider extends ServiceProvider
                 'domain' => config('fortify.domain', null),
                 'prefix' => config('fortify.prefix'),
             ], function () {
-                $this->loadRoutesFrom(__DIR__.'/../routes/admin.php');
+                $this->loadRoutesFrom(__DIR__ . '/../routes/admin.php');
             });
         }
     }

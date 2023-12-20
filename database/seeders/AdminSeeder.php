@@ -21,23 +21,23 @@ class AdminSeeder extends Seeder
     {
         $admin = Admin::factory(4)->create();
 
-        Listing::factory(6)->create([
+        Listing::factory()->create([
             'admin_id' => $admin->id
         ]);
 
-        Blog::factory(6)->create([
+        Blog::factory()->create([
             'admin_id' => $admin->id
         ]);
 
-        Learning::factory(6)->create([
+        Learning::factory()->create([
             'admin_id' => $admin->id
         ]);
 
-        $admin->ownedTeams()->save(Team::forceCreate([
-            'admin_id' => $admin->id,
-            'name' => explode('Dante', $admin->name, 2)[0] . "'s Team",
-            'personal_team' => true,
-        ]));
+        // $admin->ownedTeams()->save(Team::forceCreate([
+        //     'admin_id' => $admin->id,
+        //     'name' => explode('Dante', $admin->name, 2)[0] . "'s Team",
+        //     'personal_team' => true,
+        // ]));
     }
 }
 

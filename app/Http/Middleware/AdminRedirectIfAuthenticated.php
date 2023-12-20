@@ -22,11 +22,11 @@ class AdminRedirectIfAuthenticated
         $guards = empty($guards) ? [null] : $guards;
 
         foreach ($guards as $guard) {
-            if (!auth()->guard('admin')->check()) {
-                return $next($request);
+            if (Auth::guard($guard)->check()) {
+                return redirect($guard . '/dashboard');
             }
         }
-        return redirect($guard.'admin/login');
+        return $next($request);
 
     }
 }

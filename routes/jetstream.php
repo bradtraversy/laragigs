@@ -17,12 +17,12 @@ Route::group(['middleware' => config('jetstream.middleware', ['web'])], function
     }
 
     $authMiddleware = config('jetstream.guard')
-            ? 'auth:'.config('jetstream.guard')
-            : 'auth';
+        ? 'auth:' . config('jetstream.guard')
+        : 'auth';
 
     $authSessionMiddleware = config('jetstream.auth_session', false)
-            ? config('jetstream.auth_session')
-            : null;
+        ? config('jetstream.auth_session')
+        : null;
 
     Route::group(['middleware' => array_values(array_filter([$authMiddleware, $authSessionMiddleware]))], function () {
         // User & Profile...
@@ -36,13 +36,13 @@ Route::group(['middleware' => config('jetstream.middleware', ['web'])], function
 
             // Teams...
             if (Jetstream::hasTeamFeatures()) {
-                Route::get('user/teams/create', [TeamController::class, 'create'])->name('teams.create');
+                Route::get('/teams/create', [TeamController::class, 'create'])->name('teams.create');
                 Route::get('user/teams/{team}', [TeamController::class, 'show'])->name('teams.show');
                 Route::put('user/current-team', [CurrentTeamController::class, 'update'])->name('current-team.update');
 
                 Route::get('user/team-invitations/{invitation}', [TeamInvitationController::class, 'accept'])
-                            ->middleware(['signed'])
-                            ->name('team-invitations.accept');
+                    ->middleware(['signed'])
+                    ->name('team-invitations.accept');
             }
         });
     });

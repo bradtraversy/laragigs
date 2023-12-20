@@ -1,11 +1,10 @@
 <?php
 
 namespace App\Actions\Fortify;
+// use App\Models\Admin;
 use App\Http\Controllers\AdminController;
-
 use Laravel\Fortify\Events\TwoFactorAuthenticationChallenged;
 use Laravel\Fortify\Fortify;
-
 use Illuminate\Auth\Events\Failed;
 use Laravel\Fortify\LoginRateLimiter;
 use Illuminate\Contracts\Auth\StatefulGuard;

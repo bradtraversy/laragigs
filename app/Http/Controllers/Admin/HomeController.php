@@ -12,10 +12,10 @@ class HomeController extends Controller
      *
      * @return void
      */
-    // public function __construct()
-    // {
-    //     $this->middleware('admin');
-    // }
+    public function __construct()
+    {
+        $this->middleware('admin');
+    }
 
     /**
      * Show the application dashboard.
@@ -24,6 +24,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('dashboard');
+        return view('/admin/dashboard');
     }
 }

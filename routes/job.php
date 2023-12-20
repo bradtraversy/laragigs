@@ -9,7 +9,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ListingController;
 use App\Http\Controllers\DashboardController;
-
+use App\Http\Controllers\AboutController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -32,3 +32,6 @@ use App\Http\Controllers\DashboardController;
 
 //All Jobs
 Route::get('/jobs', [DashboardController::class, 'jobs']);
+
+//About Page
+Route::get('/about', [AboutController::class, 'about']);

@@ -43,11 +43,11 @@
   </script>
   <title>Sharnoor Travel Agency | Find Jobs & Projects</title>
 
-
+  @livewireStyles
 
 </head>
 
-<body class="mb-48" id="body">
+<body class="mb-48" id="body" wire:poll>
     <div>
   <nav class="2xl:container d-xl-flex fixed-top">
      {{-- <a href="/"><img class="w-14" src="{{asset('images/logo.png')}}" alt="" class="logo" /></a> --}}
@@ -55,10 +55,10 @@
 <div class="welcome flex mr-1">
     <ul class="text-lg collapse-bar flex">
         <div class="navbar-brand">
-            <div class="shrink-0 flex items-center">
+            <div class="shrink-0 flex gap-2 items-center">
                     <a href="{{ route('dashboard') }}">
-                        <x-application-mark class="block h-9 w-auto" />
-                        <a href="/"> Sharnoor Travel Agency </a>
+                      {{--   <x-application-mark class="block h-9 w-auto" />  --}}
+                        <a href="/" class="text-3xl"> Sharnoor Travel Agency </a>
                     </a>
                 </div>
 
@@ -75,65 +75,37 @@
        <span><li class="nav-item"><a href="/jobs" class="nav-link"><i class="fa fa-person-digging mx-2 fs-4"></i> <br/>
        <span>Jobs</span> </a></li></span>
 
-       <span>
-       <li class="nav-item"><a href="/learn" class="nav-link"><i class="fa fa-book-reader px-0 mx-3 fs-4"></i><br/><span>
-       E-portal</span></a></li></span>
         <span>
        <li class="nav-item"><a href="/main" class="nav-link"><i class="fa fa-blog px-2 fs-4 py-0"></i><br/>
         <span>Blog</span></a></li></span>
-        <span>
-        <li class="nav-item"><a href="gallery.html" class="nav-link"><i class="fa fa-photo-video px-2 fs-4"></i><br/>
-            <span>Gallery</span></a></li></span>
+
             <span>
-       <li class="nav-item"><a href="sharbout.html" class="nav-link"><i class="fa fa-info mx-3 fs-4"></i><br/>
+       <li class="nav-item"><a href="/about" class="nav-link"><i class="fa fa-info mx-3 fs-4"></i><br/>
        <span>About</span></a></li></span>
 
 </div>
-<div class="top-1 text-white-50 flex flex-col mr-3 max-w-lg">
+<div class="p-4 text-white-50 flex flex-col mr-3 max-w-lg">
             @auth
 
-            @livewire('navigation-menu')
-                {{--   <li>
-                    <span class="font-bold Uppercase text-lg">
-                        Welcome {{ auth()->user()->name }}
-                    </span>
-                </li>
+            @livewire('navigation-menu', ['lazy' => true])
 
-                <li>
-                    <form class="inline" method="POST" action="/logout">
-                        @csrf
-                        <button type="submit">
-                            <i class="fa-solid fa-door-closed text-decoration-none"></i> Logout
-                        </button>
-                    </form>
-                </li>
---}}
             @else
-                <li>
-                    <a href="/register" class="hover:text-laravel  text-white px-3"><i class="fa-solid fa-user-plus"></i>
+            <div class="d-flex">
+                <li class="justify-between">
+                    <a wire:navigate href="/register" class="hover:text-laravel gap-2 flex text-white px-3 no-underline text-2xl"><i class="fa-solid fa-user-plus"></i>
                         Register</a>
                 </li>
                 <li>
-                    <a href="/login" class="hover:text-laravel  text-white px-3"><i
+                    <a wire:navigate href="/login" class="hover:text-laravel gap-2 flex justify-between text-white text-2xl px-2 no-underline"><i
                             class="fa-solid fa-arrow-right-to-bracket"></i> Login</a>
                 </li>
+            </div>
 
             @endauth
         </div>
 </nav>
 
 
-
-
-         {{--    @if (isset($header))
-                <header class="bg-white shadow">
-                    <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                        {{ $header }}
-                    </div>
-                </header>
-            @endif
-
- --}}
 
   <div class="text-white-50 h-6 w-1/4 bg-white">
     @auth
@@ -142,9 +114,7 @@
         Welcome {{auth()->user()->name}}
       </span>
     </li>
-    {{-- <li>
-      <a href="/listings/manage" class="hover:text-laravel no-underline"><i class="fa-solid fa-gear"></i> Manage Listings</a>
-    </li> --}}
+
     <li>
       <form class="inline" method="POST" action="/logout" >
         @csrf
@@ -166,21 +136,27 @@
 
 <div class="pt-20">
   <main>
-
-    @include('partials._chat')
    {{ $slot }}
 
   </main>
   </div>
 
-  <footer
-    class="fixed bottom-0 left-0 w-full flex items-center justify-start font-bold bg-laravel text-white h-24 mt-24 opacity-90 md:justify-center">
+  <div class="share left-0 fixed-bottom p-4 text-white">
+      <a href="#" class="fab fa-facebook-f text-2xl" id="share"></a>
+      <a href="#" class="fab fa-tiktok text-2xl" id="share"></a>
+      <a href="#" class="fab fa-instagram text-2xl" id="share"></a>
 
-    <p class="ml-2">Copyright &copy; Dante Mwangi 2023, All Rights reserved</p>
+      </div>
+  <footer
+    class="fixed bottom-0 left-0 w-full flex items-center justify-between font-bold bg-laravel text-white h-20 mt-20 opacity-90 md:justify-evenly">
+
+        <p class="ml-2 mx-auto">Copyright &copy; 2023 | Dante M.</p>
 
   </footer>
 
   <x-flash-message />
+
+  @livewireScripts
 </body>
 
 </html>

@@ -8,6 +8,11 @@ use Illuminate\Validation\Rule;
 
 class UserController extends Controller
 {
+
+    public $name;
+    public $email;
+    public $password;
+
     // Show Register/Create Form
     public function create() {
         return view('users.register');

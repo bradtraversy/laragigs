@@ -72,15 +72,15 @@ class AttemptToAuthenticate
      */
     protected function handleUsingCustomCallback($request, $next)
     {
-        $user = call_user_func(Fortify::$authenticateUsingCallback, $request);
+        $admin = call_user_func(Fortify::$authenticateUsingCallback, $request);
 
-        if (!$user) {
+        if (!$admin) {
             $this->fireFailedEvent($request);
 
             return $this->throwFailedAuthenticationException($request);
         }
 
-        $this->guard->login($user, $request->boolean('remember'));
+        $this->guard->login($admin, $request->boolean('remember'));
 
         return $next($request);
     }

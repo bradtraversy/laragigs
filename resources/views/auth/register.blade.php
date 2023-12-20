@@ -6,7 +6,7 @@
 
         {{-- <x-validation-errors class="mb-4" /> --}}
 
-        <form method="POST" action="{{ isset($guard) ? url($guard.'/register')  : route('admin.register') }}">
+        <form method="POST" action="{{ isset($guard) ? url($guard.'/register')  : route('register') }}">
             @csrf
 
             <div>

@@ -16,7 +16,7 @@ use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Auth\Authenticatable;
 class Admin extends Model implements AuthenticatableContract
 {
-    use HasApiTokens, HasFactory, Notifiable, HasProfilePhoto, TwoFactorAuthenticatable, HasTeams, MustVerifyEmail, Authenticatable;
+    use HasApiTokens, HasFactory,  Notifiable, HasProfilePhoto, TwoFactorAuthenticatable, MustVerifyEmail, Authenticatable;
 
     /**
      * The attributes that are mass assignable.

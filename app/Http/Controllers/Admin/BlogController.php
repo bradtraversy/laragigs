@@ -3,9 +3,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Models\Blog;
 use Illuminate\Http\Request;
-use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
 class BlogController extends Controller
 {
@@ -39,7 +40,7 @@ class BlogController extends Controller
 
         Blog::create($formFields);
 
-        return redirect('/main')->with('message', 'Blog created successfully!');
+        return redirect('/admin/dashboard')->with('message', 'Blog created successfully!');
     }
 
     // Show Edit Form
