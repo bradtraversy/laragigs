@@ -19,7 +19,7 @@ The user portal has a jobs section and a blog section. Users can apply for jobs,
 
 To get started
 1. run the necesary migrations
-   php artisan migrate
+  <code> php artisan migrate</code>
 3. Publish the necesary assets
    php artisan vendor:publish
 
