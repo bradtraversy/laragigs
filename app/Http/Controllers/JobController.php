@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 class JobController extends Controller
 {
+
     public function index()
     {
         return view('listings.index', [

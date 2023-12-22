@@ -21,7 +21,8 @@
         </div>
     </div>
     <h6 class="desc">Dive into our engaging content categories.</h6>
-    <div class="category_box_section" wire:poll.visible.keep-alive.3s>
+    <div class="category_box_section">
+
         @unless (count($blogs) == 0)
 
             @foreach ($blogs as $blog)
@@ -35,11 +36,9 @@
         @else
             <p class="text-white">No blogs found</p>
         @endunless
-
     </div>
+
 </div>
-
-
 
 
 <div class="popular_destination">

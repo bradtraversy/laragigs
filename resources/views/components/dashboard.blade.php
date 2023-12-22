@@ -66,7 +66,7 @@
 
         <div class="nav" wire:navigate>
             <span>
-                <li class="nav-item"> <a href="/" :active="request()->routeIs('/')" class="nav-link"><i class="fa fa-home-alt mx-2 fs-4"></i> <br />
+                <li class="nav-item"> <a href="/" class="nav-link"><i class="fa fa-home-alt mx-2 fs-4"></i> <br />
                         <span>Home</span></a></li>
             </span>
             <span>

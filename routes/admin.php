@@ -56,16 +56,14 @@ Route::middleware(['auth:sanctum,admin', config('jetstream.auth_session', 'verif
 //     ->name('dashboard')->middleware('auth:admin');
     Route::get('/admin/dashboard', function () {
         return view('dashboard');
-    })->name('dashboard');
+    })->name('dashboard')->middleware('auth:admin');
 
     Route::post('admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
     Route::resource('/admin/listings', ListingController::class)->middleware('auth:admin');
    // Manage Listings
-Route::get('/admin/listings/manage', [ListingController::class, 'manage'])
-    ->name('listings')
-    ->middleware('admin');
 
-    Route::resource('/admin/Blog', BlogController::class)->middleware('auth:admin');
+
+    Route::resource('/admin/blogs', BlogController::class)->middleware('auth:admin');
 
 
     //

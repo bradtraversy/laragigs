@@ -1,8 +1,7 @@
 @props(['blog'])
  <!-- latest blog section -->
-
-
         <div class="blog_box">
+         
             {{-- <h6 class="desc block" id="category">{{$blog->category}}</h6> --}}
             <img src="{{$blog->image ? asset('storage/' . $blog->image) : asset('/images/no-image.png')}}" alt="Blog Image" class="blog_img">
             <div class="blog_data">

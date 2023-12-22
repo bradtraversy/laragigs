@@ -5,6 +5,7 @@
         {{-- search --}}
         @include('partials._search')
     <div class="tags-bar">
+
         @unless(count($listings) == 0)
 
         @foreach($listings as $listing)
@@ -14,6 +15,7 @@
         @else
         <p class="text-white-50 mx-auto">No tags found</p>
         @endunless
+
     </div>
     </div>
     <div class="container-fluid main-container">

@@ -95,7 +95,7 @@ return [
         'name' => env('MAIL_FROM_NAME', 'Dante Mwangi'),
     ],
 
-    'reply_to' => ['address' => 'example@example.com', 'name' => 'App Name'],
+    'reply_to' => ['address' => 'sharnoor0020@gmail.com', 'name' => 'Sharnoor Travellers'],
 
     /*
     |--------------------------------------------------------------------------

@@ -94,6 +94,6 @@ class BlogController extends Controller
     // Manage Listings
     public function manage()
     {
-        return view('blogs.manage', ['blogs' => auth()->user()->blogs()->get()]);
+        return view('Blog.manage', ['blogs' => auth()->user()->blogs()->get()]);
     }
 }

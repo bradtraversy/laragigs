@@ -1,5 +1,5 @@
-<x-layout>
-  <x-card class="p-10 max-w-lg mx-auto mt-24 text-white-50">
+<x-guest-layout>
+  <x-card class="p-10 max-w-lg mx-auto mt-24 text-black">
     <header class="text-center">
       <h2 class="text-2xl font-bold uppercase mb-1">Edit Gig</h2>
       <p class="mb-4">Edit: {{$listing->title}}</p>
@@ -66,7 +66,7 @@
           Tags (Comma Separated)
         </label>
         <input type="text" class="border border-gray-200 rounded p-2 w-full" name="tags"
-          placeholder="Example: Laravel, Backend, Postgres, etc" value="{{$listing->tags}}" />
+          placeholder="Example: Driver, Maintenance, Security, etc" value="{{$listing->tags}}" />
 
         @error('tags')
         <p class="text-red-500 text-xs mt-1">{{$message}}</p>
@@ -109,17 +109,17 @@
     </form>
   </x-card>
 
-  
+
     <x-card class="mt-4 p-2 flex space-x-6">
-      <a href="/admin/listings/{{$listing->id}}/edit">
+      <a href="admin/listings/{{$listing->id}}/edit">
         <i class="fa-solid fa-pencil"></i> Edit
       </a>
 
-      <form method="POST" action="/listings/{{$listing->id}}">
+      <form method="POST" action="admin/listings/{{$listing->id}}">
         @csrf
         @method('DELETE')
         <button class="text-red-500"><i class="fa-solid fa-trash"></i> Delete</button>
       </form>
     </x-card>
 
-</x-layout>
+</x-guest-layout>

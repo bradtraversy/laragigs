@@ -8,8 +8,9 @@ use Illuminate\Mail\Mailables\Address;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Mail\Mailables\Envelope;
-use Illuminate\Contracts\Queue\ShouldQueue;
 use App\Http\Controllers\MailController;
+use Illuminate\Mail\Mailables\Attachment;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
 class TestEmail extends Mailable
 {
@@ -32,7 +33,7 @@ class TestEmail extends Mailable
         return $this->subject('Subject of the Email')
         ->from('example@test.com')
         ->view('emails.email-template'); // Blade view file for your email
-                   
+
     }
     /**
      * Get the message envelope.
@@ -54,11 +55,12 @@ class TestEmail extends Mailable
     public function content()
     {
         return new Content(
-            view: 'emails.email-template',
+            view: 'mail.emails.email-template',
+
         );
     }
 
-    
+
     /**
      * Get the attachments for the message.
      *
@@ -66,6 +68,10 @@ class TestEmail extends Mailable
      */
     public function attachments()
     {
-        return [];
+        return [
+            Attachment::fromPath('/path/to/file')
+                    ->as('name.pdf')
+                    ->withMime('application/pdf'),
+        ];
     }
 }

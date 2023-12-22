@@ -5,16 +5,18 @@ namespace App\Http\Controllers;
 use App\Mail\TestEmail;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
+
 class MailController extends Controller
 {
     public function mail()
     {
         $subject = 'Subject';
-        $body = 'Message';
+        $body = 'message';
         Mail::to('damalide20@gmail.com')->send(new TestEmail($subject, $body));
         // Mail::to('sharnoor0020@gmail.com')
         //     ->from('damalide20@gmail.com', 'Dante Mwangi | Web Admin')
         //     ->send(new TestEmail($subject, $body));
+
     }
 
     public function sendMail(Request $request)
@@ -37,9 +39,12 @@ class MailController extends Controller
             'content' => $request->content,
         ];
 
-        Mail::send('send-email-template', $body, function ($message) use ($body) {
+        Mail::send('send-emails-email-template', $body, function ($message) use ($body) {
             $message->$body['email']->subject($body['subject']);
         });
-        return back()->with(['message' => 'Email sent successfully']);
+        return back()->with('message', 'Email sent successfully!');
+
+        // After sending the email, redirect to the home page
+        // $this->redirect(route('/index'));
     }
 }

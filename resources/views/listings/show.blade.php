@@ -1,7 +1,7 @@
 <x-layout>
   <a href="/" class="inline-block ml-4 mb-4 text-white"><i class="fa-solid fa-arrow-left"></i> Back
   </a>
-  <div class="mx-4 text-white-50">
+  <div class="mx-4 text-white">
     <x-card class="p-10 text-white">
       <div class="flex flex-col items-center justify-center text-center">
         <img class="w-48 mr-6 mb-6"
@@ -11,9 +11,9 @@
           {{$listing->title}}
         </h3>
         <div class="text-xl font-bold mb-4">{{$listing->company}}</div>
-
-        <x-listing-tags :tagsCsv="$listing->tags" />
-
+<div class="justify-center align-center">
+        <x-listing-tags :tagsCsv="$listing->tags"/>
+        </div>
         <div class="text-lg my-4">
           <i class="fa-solid fa-location-dot"></i> {{$listing->location}}
         </div>

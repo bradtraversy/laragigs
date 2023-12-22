@@ -6,10 +6,10 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\UserController;
-use App\Http\Controllers\AdminController;
-use App\Http\Controllers\ListingController;
-use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\AboutController;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Admin\ListingController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -35,3 +35,4 @@ Route::get('/jobs', [DashboardController::class, 'jobs']);
 
 //About Page
 Route::get('/about', [AboutController::class, 'about']);
+

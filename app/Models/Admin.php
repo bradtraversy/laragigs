@@ -3,9 +3,12 @@
 namespace App\Models;
 
 
+use App\Models\Blog;
+use App\Models\Listing;
+
 use Laravel\Jetstream\HasTeams;
 use Laravel\Sanctum\HasApiTokens;
-
+use Illuminate\Auth\Authenticatable;
 use Illuminate\Auth\MustVerifyEmail;
 use Laravel\Jetstream\HasProfilePhoto;
 use Illuminate\Database\Eloquent\Model;
@@ -13,10 +16,10 @@ use Illuminate\Notifications\Notifiable;
 use Laravel\Fortify\TwoFactorAuthenticatable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
-use Illuminate\Auth\Authenticatable;
+
 class Admin extends Model implements AuthenticatableContract
 {
-    use HasApiTokens, HasFactory,  Notifiable, HasProfilePhoto, TwoFactorAuthenticatable, MustVerifyEmail, Authenticatable;
+    use HasApiTokens, HasFactory, Notifiable, HasProfilePhoto, TwoFactorAuthenticatable, MustVerifyEmail, Authenticatable;
 
     /**
      * The attributes that are mass assignable.
@@ -59,4 +62,16 @@ class Admin extends Model implements AuthenticatableContract
     protected $appends = [
         'profile_photo_url',
     ];
+
+    // Relationship With Listings
+    public function listings()
+    {
+        return $this->hasMany(Listing::class, 'admin_id');
+    }
+
+    // Relationship With Blogs
+    public function blogs()
+    {
+        return $this->hasMany(Blog::class, 'admin_id');
+    }
 }

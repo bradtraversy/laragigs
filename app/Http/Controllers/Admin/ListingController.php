@@ -8,6 +8,7 @@ use Illuminate\Validation\Rule;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
+use App\Models\Admin;
 
 class ListingController extends Controller
 {
@@ -16,7 +17,7 @@ class ListingController extends Controller
     public function __construct()
     {
         $this->middleware('admin');
-        // $this->guard = $guard;
+    
     }
 
     // Show Create Form
@@ -107,6 +108,6 @@ class ListingController extends Controller
     // Manage Listings
     public function manage()
     {
-        return view('listings.manage', ['listings' => auth()->admin()->listings()->get()]);
+        return view('listings.manage', ['listings' => auth()->user()->listings()->get()]);
     }
 }
