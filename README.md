@@ -1,12 +1,12 @@
 # Gigs site
 
 ## Table of Contents <br/>
-(#I am a full stack developer, interested in Laravel, Javscript, Html, Css, Alpine Js, React BootStrap and Tailwindcss)<br/>
-(#Profile, teams, blogs, gigs)<br/>
-(# To get started ensure you have installed composer)
+#I am a full stack developer, interested in Laravel, Javscript, Html, Css, Alpine Js, React BootStrap and Tailwindcss <br/>
+#Profile, teams, blogs, gigs <br/>
+# To get started ensure you have installed composer
 
-(#Register into the admin portal and post jobs and blogs)<br/>
-(#MIT)<br/>
+#Register into the admin portal and post jobs and blogs <br/>
+#MIT <br/>
 
 
 The user portal has a jobs section and a blog section. Users can apply for jobs, subscribe for notifications and enjoy our well scrafted blogs
