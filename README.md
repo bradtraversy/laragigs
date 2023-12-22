@@ -6,7 +6,7 @@
 # To get started ensure you have installed composer
 
 #Register into the admin portal and post jobs and blogs <br/>
-#MIT <br/>
+
 
 
 The user portal has a jobs section and a blog section. Users can apply for jobs, subscribe for notifications and enjoy our well scrafted blogs
