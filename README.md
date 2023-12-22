@@ -1,17 +1,13 @@
-# Project Title
-
-Brief description or tagline for your project.
+# Gigs site
 
 ## Table of Contents
+(#I am a full stack developer, interested in Laravel, Javscript, Html, Css, Alpine Js, React BootStrap and Tailwindcss)
+(#Profile, teams, blogs, gigs)
+(#install composer)
+(#nodejs)
+(#Register into the admin portal and post jobs and blogs)
+(#MIT)
 
-- [About](#I am a full stack developer, interested in Laravel, Javscript, Html, Css, Alpine Js, React BootStrap and Tailwindcss)
-- [Features](#Profile, teams, blogs, gigs)
-- [Getting Started](#install composer)
-  - [Prerequisites](#nodejs)
-- [Usage](#Register into the admin portal and post jobs and blogs)
-- [License](#MIT)
-
-## About
 
 The user portal has a jobs section and a blog section. Users can apply for jobs, subscribe for notifications and enjoy our well scrafted blogs
 
