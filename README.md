@@ -14,13 +14,13 @@ The user portal has a jobs section and a blog section. Users can apply for jobs,
 ## Getting Started
 
 To get started
-1. run the necesary migrations
-  <code> php artisan migrate</code>
-3. Publish the necesary assets
-   php artisan vendor:publish
+1. run the necesary migrations <br/>
+  <code> php artisan migrate </code>
+3. Publish the necesary assets <br/>
+    <code> php artisan vendor:publish </code>
 
-4. serve the project
-   php artisan serve
+4. serve the project <br/>
+    <code> php artisan serve </code>
 
 
 
