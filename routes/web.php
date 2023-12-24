@@ -61,7 +61,7 @@ Route::get('/login', [UserController::class, 'login'])
 Route::post('/users/authenticate', [UserController::class, 'authenticate']);
 
 // email send
-Route::get('/emails/email-template', [MailController::class, 'mail']);
+Route::post('/emails/email-template', [MailController::class, 'mail']);
 
 Route::get('/feed', [FeedbackController::class, 'feed']);
 require_once __DIR__ . '/jetstream.php';
