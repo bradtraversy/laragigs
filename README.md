@@ -1,26 +1,41 @@
-# Gigs site
+# Project Name
 
-## Table of Contents <br/>
-#I am a full stack developer, interested in Laravel, Javscript, Html, Css, Alpine Js, React BootStrap and Tailwindcss <br/>
-#Profile, teams, blogs, gigs <br/>
-# To get started ensure you have installed composer
+Short project description and purpose.
 
-#Register into the admin portal and post jobs and blogs <br/>
+## Table of Contents
 
+- [Introduction](#introduction)
+- [Requirements](#requirements)
+- [Getting Started](#getting-started)
+  - [Clone the Repository](#clone-the-repository)
+  - [Install Dependencies](#install-dependencies)
+  - [Configuration](#configuration)
+  - [Run Migrations](#run-migrations)
+  - [Start the Development Server](#start-the-development-server)
+- [Deployment](#deployment)
+  - [Environment Configuration](#environment-configuration)
+  - [Database Setup](#database-setup)
+  - [Optimizations (Optional)](#optimizations-optional)
+- [Contributing](#contributing)
+- [License](#license)
 
+## Introduction
 
-The user portal has a jobs section and a blog section. Users can apply for jobs, subscribe for notifications and enjoy our well scrafted blogs
+Brief introduction and purpose of the project.
+
+## Requirements
+
+List of prerequisites and software dependencies needed to run the project.
 
 ## Getting Started
 
-To get started
-1. run the necesary migrations <br/>
-  <code> php artisan migrate </code>
-3. Publish the necesary assets <br/>
-    <code> php artisan vendor:publish </code>
+Instructions for setting up the project locally.
 
-4. serve the project <br/>
-    <code> php artisan serve </code>
+### Clone the Repository
+
+```bash
+git clone https://github.com/your-username/your-repo.git
+
 
 
 
