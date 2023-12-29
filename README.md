@@ -34,8 +34,12 @@ Instructions for setting up the project locally.
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/your-repo.git
+git clone https://github.com/Dante-VIQ/your-repo.git
 
+### Install Dependencies
+
+cd your-repo
+composer install
 
 
 
