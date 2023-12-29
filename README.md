@@ -1,6 +1,6 @@
-# Project Name
+# Sharnoor Travel Agency 
 
-Short project description and purpose.
+Basic job and blogging site.
 
 ## Table of Contents
 
@@ -34,11 +34,12 @@ Instructions for setting up the project locally.
 ### Clone the Repository
 
 ```bash
-git clone https://github.com/Dante-VIQ/your-repo.git
+git clone https://dante-viq.github.io/Gigs-Site
+
 
 ### Install Dependencies
 
-cd your-repo
+cd main
 composer install
 
 
