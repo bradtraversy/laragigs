@@ -19,8 +19,8 @@ jobs:
     - run: npm run production
     - name: Commit built assets
       run: |
-        git config --local user.email "action@github.com"
-        git config --local user.name "GitHub Action"
+        git config --local damalide20@gmail.com "action@github.com"
+        git config --local Dante-VIQ "GitHub Action"
         git checkout -B deploy
         git add -f public/
         git commit -m "Build front-end assets"
@@ -28,7 +28,7 @@ jobs:
     - name: Deploy to production
       uses: appleboy/ssh-action@master
       with:
-        username: YOUR USERNAME GOES HERE
+        username: Dante-VIQ
         host: YOUR SERVER'S HOSTNAME GOES HERE
         password: ${{ secrets.SSH_PASSWORD }}
         script: 'cd /var/www/html && ./server_deploy.sh'
