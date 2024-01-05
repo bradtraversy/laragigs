@@ -1,0 +1,25 @@
+name: Build and Push Docker Image
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Docker
+      uses: docker/setup-docker@v2
+      with:
+        docker-version: '20.10.10'  # You can specify the version you need
+
+    - name: Build and Push Docker Image
+      run: |
+        docker build -t your-image-name:latest .
+        docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+        docker push your-image-name:latest
