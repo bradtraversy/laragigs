@@ -1,40 +1,46 @@
-# LaraGigs app
+# Sharnoor Travel Agency 
 
-An app for listing Laravel gigs/jobs. This project is from my YouTube "[Laravel From Scratch 2022](https://www.youtube.com/watch?v=MYyJ4PuL4pY)" course.
+Basic job and blogging site.
 
-![Alt text](/public/images/screen.png "LaraGigs")
+## Table of Contents
 
-## Usage
+- [Introduction](#introduction)
+- [Requirements](#requirements)
+- [Getting Started](#getting-started)
+  - [Clone the Repository](#clone-the-repository)
+  - [Install Dependencies](#install-dependencies)
+  - [Configuration](#configuration)
+  - [Run Migrations](#run-migrations)
+  - [Start the Development Server](#start-the-development-server)
+- [Deployment](#deployment)
+  - [Environment Configuration](#environment-configuration)
+  - [Database Setup](#database-setup)
+  - [Optimizations (Optional)](#optimizations-optional)
+- [Contributing](#contributing)
+- [License](#license)
 
-### Database Setup
-This app uses MySQL. To use something different, open up config/Database.php and change the default driver.
+## Introduction
 
-To use MySQL, make sure you install it, setup a database and then add your db credentials(database, username and password) to the .env.example file and rename it to .env
+Brief introduction and purpose of the project.
 
-### Migrations
-To create all the nessesary tables and columns, run the following
-```
-php artisan migrate
-```
+## Requirements
 
-### Seeding The Database
-To add the dummy listings with a single user, run the following
-```
-php artisan db:seed
-```
+List of prerequisites and software dependencies needed to run the project.
 
-### File Uploading
-When uploading listing files, they go to "storage/app/public". Create a symlink with the following command to make them publicly accessible.
-```
-php artisan storage:link
-```
+## Getting Started
 
-### Running The App
-Upload the files to your document root, Valet folder or run 
-```
-php artisan serve
-```
+Instructions for setting up the project locally.
 
-## License
+### Clone the Repository
 
-The LaraGigs app is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+```bash
+git clone https://dante-viq.github.io/Gigs-Site
+
+
+### Install Dependencies
+
+cd main
+composer install
+
+
+

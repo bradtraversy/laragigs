@@ -4,8 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-return new class extends Migration
-{
+return new class extends Migration {
     /**
      * Run the migrations.
      *
@@ -15,8 +14,8 @@ return new class extends Migration
     {
         Schema::create('listings', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->string('title');
+            $table->unsignedBigInteger('admin_id');
             $table->string('logo')->nullable();
             $table->string('tags');
             $table->string('company');
@@ -25,6 +24,10 @@ return new class extends Migration
             $table->string('website');
             $table->longText('description');
             $table->timestamps();
+
+            // $table->dropIndex('title');
+            $table->foreign('admin_id')->references('id')->on('admins')->onDelete('cascade');
+            $table->engine = 'InnoDB';
         });
     }
 

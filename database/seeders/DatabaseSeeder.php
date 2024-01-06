@@ -2,9 +2,9 @@
 
 namespace Database\Seeders;
 
-
+use App\Models\Team;
 use App\Models\User;
-use App\Models\Listing;
+
 use Illuminate\Database\Seeder;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 
@@ -17,19 +17,19 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(5)->create();
+        // User::factory(5)->create();
 
-        $user = User::factory()->create([
-            'name' => 'John Doe',
-            'email' => 'john@gmail.com'
-        ]);
+        $user = User::factory()->create();
 
-        Listing::factory(6)->create([
-            'user_id' => $user->id
-        ]);
+
+        $user->ownedTeams()->save(Team::forceCreate([
+            'user_id' => $user->id,
+            'name' => explode('Dante', $user->name, 2)[0] . "'s Team",
+            'personal_team' => true,
+        ]));
 
         // Listing::create([
-        //     'title' => 'Laravel Senior Developer', 
+        //     'title' => 'Laravel Senior Developer',
         //     'tags' => 'laravel, javascript',
         //     'company' => 'Acme Corp',
         //     'location' => 'Boston, MA',

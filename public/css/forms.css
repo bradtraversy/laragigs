@@ -1,0 +1,389 @@
+*, *::after, *::before {
+	margin: 0;
+	padding: 0;
+	box-sizing: box-shadow;
+	text-transform: capitalize;
+	font-family:Verdana, Geneva, Tahoma, sans-serif;
+	list-style-type: none;
+	text-decoration: none;
+	border: none;
+	outline: none;
+	}
+
+:root{
+	--color-white: hsl(252, 30%, 100%);
+	--color-light: hsl(252, 30%, 95%);
+	--color-gry: hsl(252, 15%, 65%);
+	--color-primary: hsl(252, 75%, 60%);
+	--color-success: hsl(120, 86%, 45%);
+	--color-danger: hsl(0, 95%, 65%);
+	--color-dark: hsl(252, 30%, 17%);
+	--color-black: hsl(252, 30%, 10%);
+    --purple: hsl(310, 86%, 46%);
+    --blue: hsl(209, 85%, 41%);
+	--btn-padding: .6rem 2rem;
+	--border-radius: 2rem;
+	--card-border-radius: 1rem;
+	--search-padding: .6rem 2rem;
+	--card-padding: 1rem;
+    --stk-top-left: 5.4rem;
+	--stk-top-right: -18rem;
+}
+
+*{
+    list-style-type: none;
+	text-decoration: none;
+}
+html{
+	scroll-behavior: smooth;
+   
+}
+
+#body{
+   background-color: #ffffff80; 
+  
+}
+
+.heading{
+    font-size: 1rem;
+    color: var(--purple);
+    padding: 0;
+    margin: .5rem;
+    position: absolute;
+    justify-content: center;
+   
+    
+}
+
+section{
+   width: 45%;
+   margin: auto 0;
+   padding: 1rem;
+   
+}
+
+.btn{
+    display: flex;
+    max-width: max-content;
+    margin-top: 1rem;
+    border-radius: 5rem;
+    background-color: var(--color-dark);
+    cursor: pointer;
+    color: var(--color-white);
+    font-size: 1.2rem;
+    padding: .7rem;
+    margin-left: 40%;
+}
+
+/*sidebar start*/
+.chatting{
+    position: relative;
+    margin-top: 5%;
+    max-width: 23%;
+    max-height: 70vh;
+    text-align: center;
+    border-radius: 9%;
+    background-color: var(--color-black);
+    padding: 0;
+    z-index: 999;
+    display: none;
+}
+.chat-box{
+    display: flex;
+    flex-wrap: wrap;
+    background-color: var(--blue);
+   
+   
+}
+.chat-box .profile{
+    flex: 1 1 8rem;
+    margin: 1rem 0 0;
+}
+.chat-box .profile img{
+ border-radius: 50%;
+ max-width: 10vw;
+ max-height: 10vh;
+
+}
+
+.chat-box .heading{
+    flex: 1 1 10rem;
+    margin: 1rem 0 0;
+}
+.chat-box .heading h2{
+    color: var(--color-white);
+    justify-content: center;
+}
+
+.chat-box .heading p{
+    color: var(--color-white);
+    font-size: 1.2rem;
+    padding-top: 0;
+    margin-top: 0;
+    
+}
+
+.chatting .blank{
+    height: 50vh;
+    display: block;
+}
+
+.chatting .blank p{
+    color: var(--color-white);
+    font-family:cursive;
+}
+#input{
+    display: flex;
+    margin-top: -2.6rem;
+    padding: .3rem 1rem;
+   
+}
+
+#input .box{
+    width: 100%;
+   margin-right: .7rem;
+}
+.chatting .input button{
+    color:var(--color-white);
+    font-size: 1.2rem;
+    text-align: center;
+   
+}
+/*sidebar end*/
+
+.popup{
+    width: 100%;
+    background: #c51212;
+    border-radius: 15px;
+    position: relative;
+    top: 10%;
+    left: 20%;
+    transform: translate(-50%, -50%) scale(0.1);
+    text-align: center;
+    padding: 0 30px 30px;
+    color: #0f0f0f;
+    box-shadow: 0 20px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.4s, top 0.4s;
+   display: flex;
+    
+  }
+  .open-popup{
+   
+    top: 50%;
+    transform: translate(-50%, -50%) scale(1);
+    
+  }
+  
+  form h2{
+    font-size: 28px;
+    font-weight: 500;
+    margin: 30px 0 10px;
+    color: #006D7B;
+  }
+#book{
+    position: fixed;
+    width: 100%;
+    height: 70vh;
+    color: var(--color-black);
+    display: none;
+}
+  .form1{
+    position: relative;
+    display: flex;
+    max-width: max-content;
+  }
+  .popup button{
+    margin-top: 50px;
+    padding: 10px 0;
+    color: #fff;
+    border: none;
+    outline: none;
+  }
+.main-right{
+    width: 100%;
+
+}
+
+.subscribe label{
+    width: 100%;
+    padding: 10px;
+    
+}
+.subscribe  input{
+    width: 100%;
+    padding: var(--search-padding);
+    text-align: center;
+    border-radius: var(--border-radius);
+}
+
+.subscribe .btn{
+   position: absolute;
+   margin: 10px;
+   
+}
+
+/* job posts start*/
+.apply-job{
+   
+    position: absolute;
+    display: flex;
+    border-radius: 5%;
+    max-height: 90%;
+    overflow-x: hidden;
+    left: 25%;
+    background-color: var(--color-white);
+    color: var(--color-black);
+    border: -30px solid var(--color-black);
+    border-style: groove;
+}
+
+#apply-job .heading{
+    padding: 0;
+    margin-left: 13%;
+    justify-content: center;
+    text-align: center;
+   
+   
+   
+}
+
+#tables .table{
+    margin-top: 15%;
+    padding: 1.5rem;
+    text-align: center;
+    color: var(--blue);
+}
+
+#tables .table  tbody tr td{
+    padding: 1.3rem;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.apply-job .table-content h3{
+    text-align: center;
+    font-size: 1.5rem;
+}
+.apply-job .table-content p{
+    font-size: 1rem;
+   
+    line-height: 2;
+}
+
+.apply-job .row{
+    flex-wrap: wrap;
+}
+
+.apply-job .row .content1{
+   flex: 1 1 10rem;
+
+}
+
+.apply-job .row .content1 h5{
+    margin-left: 1.5rem;
+}
+
+.apply-job  .row .content1 li{
+    list-style-type:lower-roman;
+}
+.apply-job  .row .content2{
+    flex: 1 1 10rem;
+    
+}
+
+.apply-job  .row .content2 h5{
+    margin-left: 1.5rem;
+}
+.apply-job  .row .content2 li a{
+    text-decoration:none;
+    color: var(--color-black);
+    list-style-type:georgian;
+}
+.apply-job .job-fill h4{
+    text-align: center;
+}
+
+.apply-job .media{
+    text-align: center;
+    margin: 1rem;
+}
+.apply-job .media p{
+    font-family: cursive;
+}
+.apply-job .media #med{
+    font-size: 1.7rem;
+    color: var(--purple);
+}
+
+.apply-job .social{
+   justify-content: center;
+   align-items: center;
+   display: flex;
+   max-width: 100%;
+}
+
+.apply-job #job1{
+   
+    color: var(--color-black);
+   
+    
+}
+.apply-job form{
+    padding: 10px;
+    height:auto;
+    width: 70%;
+   
+
+}
+
+.form-group label{
+    color: var(--color-black);
+}
+
+.apply-job form h1{
+    padding-left: 10%;
+    font-size: 30px;
+    color: var(--purple);
+}
+
+.form-group input{
+    padding: var(--card-padding);
+    background-color:var(--color-white);
+    border: var(--purple);
+    padding: .5rem;
+}
+.apply-job .form-horizontal{
+    position: sticky;
+   
+}
+
+.apply-job .form-group input::placeholder{
+    text-align: center;
+}
+
+.apply-job .social .form-group input[type="text"]{
+    color: #006D7B;
+}
+
+.apply-job .social #job1 .form-group input[type="text"]:checked{
+  background-color: #080808;
+}
+.form-group input[type="email"]{
+    color: #006D7B;
+}
+
+.form-group textarea{
+    color: #006D7B;
+    text-align: center;
+    font-family: cursive;
+}
+.form-group textarea{
+    width: 100%;
+   padding-top: .5rem;
+   height: 10vh;
+   background-color: transparent;
+}
+
+.apply-job .social form .btn{
+    margin-left: 3rem;
+}
+/* job post end */

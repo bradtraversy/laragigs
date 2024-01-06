@@ -1,11 +1,11 @@
 <x-layout>
-  <x-card class="p-10 max-w-lg mx-auto mt-24">
-    <header class="text-center">
+  <x-card class="p-14 max-w-lg mx-auto mt-3 text-white-50">
+    <header class="text-center text-white-50">
       <h2 class="text-2xl font-bold uppercase mb-1">Register</h2>
-      <p class="mb-4">Create an account to post gigs</p>
+      <p class="mb-3">Create an account</p>
     </header>
 
-    <form method="POST" action="/users">
+    <form method="POST" action="/users" class="text-white-50">
       @csrf
       <div class="mb-6">
         <label for="name" class="inline-block text-lg mb-2"> Name </label>
